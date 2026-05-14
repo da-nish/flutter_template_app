@@ -4,13 +4,42 @@ import 'package:ps_api/core/interceptor/app_param_interceptor.dart';
 import '../utils/custom_logger.dart';
 
 class PSAPIClient {
+  PSAPIClient._();
+
+  static PSAPIClient instance = PSAPIClient._();
+
   static String _baseUrl = '';
   static bool _displayLog = true;
   static String _clientIdentifier = "-";
 
-  // 'https://ib8zrijknh.execute-api.ap-south-1.amazonaws.com/stage/api'; //! hardcode
+  Dio? _httpInstance;
+  Dio get httpInstance => _httpInstance ?? setHttpClient(dioInterceptors: []);
 
-  PSAPIClient._();
+  Dio? _httpTokenInstance;
+  Dio get httpTokenInstance => _httpTokenInstance ?? setHttpClient(dioInterceptors: []);
+
+  Dio? _dummyClientInstance;
+  Dio get dummyClientInstance => _dummyClientInstance ?? setDummyClient();  
+
+  final _prettyDioLogger = PSCustomAPILogger(
+    requestHeader: true,
+    requestBody: true,
+    responseBody: true, //kDebugMode,
+    responseHeader: false,
+    error: true,
+    compact: true,
+  );
+  // Environment environment = Get.find<Environment>();
+  //  _instance!.options.headers["1212"] = "ABCD"; pass header like this.
+
+  BaseOptions get _options => BaseOptions(
+      baseUrl: _baseUrl,
+      connectTimeout: const Duration(milliseconds: 16 * 1000),
+      receiveTimeout: const Duration(milliseconds: 16 * 1000),
+      sendTimeout: const Duration(milliseconds: 16 * 1000),
+      headers: {"x-cid": "mnik"},
+    );
+
 
   void setConfig({
     required String baseUrl,
@@ -26,61 +55,29 @@ class PSAPIClient {
 
     // Environment environment = Get.find<Environment>();
     // _baseUrl = environment.baseURL;
-    _httpClientInstance = setHttpClient(dioInterceptors: interceptors);
+    _httpInstance = setHttpClient(dioInterceptors: interceptors);
     _httpTokenInstance = setTokenClient(dioInterceptors: interceptors);
     _dummyClientInstance = setDummyClient();
   }
 
-  static PSAPIClient instance = PSAPIClient._();
-
-  Dio? _httpClientInstance;
-  Dio get httpClientInstance =>
-      _httpClientInstance ?? setHttpClient(dioInterceptors: []);
-
-  Dio? _httpTokenInstance;
-  Dio get httpTokenInstance =>
-      _httpTokenInstance ?? setHttpClient(dioInterceptors: []);
-
-  Dio? _dummyClientInstance;
-  Dio get dummyClientInstance => _dummyClientInstance ?? setDummyClient();
-
-  static final _prettyDioLogger = PSCustomAPILogger(
-    requestHeader: true,
-    requestBody: true,
-    responseBody: true, //kDebugMode,
-    responseHeader: false,
-    error: true,
-    compact: true,
-  );
-  // Environment environment = Get.find<Environment>();
-  //  _instance!.options.headers["1212"] = "ABCD"; pass header like this.
-
-  BaseOptions get _options => BaseOptions(
-        baseUrl: _baseUrl,
-        connectTimeout: const Duration(milliseconds: 16 * 1000),
-        receiveTimeout: const Duration(milliseconds: 16 * 1000),
-        sendTimeout: const Duration(milliseconds: 16 * 1000),
-        headers: {"x-cid": "mnik"},
-      );
-
   Dio setHttpClient({required List<Interceptor> dioInterceptors}) {
-    if (_httpClientInstance == null) {
-      _httpClientInstance = Dio(_options.copyWith());
+    if (_httpInstance == null) {
+      _httpInstance = Dio(_options.copyWith());
     } else {
-      _httpClientInstance!.interceptors.clear();
+      _httpInstance!.interceptors.clear();
     }
 
     for (Interceptor element in dioInterceptors) {
-      _httpClientInstance!.interceptors.add(element);
+      _httpInstance!.interceptors.add(element);
     }
     if (_displayLog) {
-      _httpClientInstance!.interceptors.add(_prettyDioLogger);
+      _httpInstance!.interceptors.add(_prettyDioLogger);
     }
 
-    _httpClientInstance!.interceptors
+    _httpInstance!.interceptors
         .add(AppParamInterceptor(appIdentifier: _clientIdentifier));
 
-    return _httpClientInstance!;
+    return _httpInstance!;
   }
 
   ///returns a Dio client with Access token in header
@@ -148,6 +145,6 @@ class PSAPIClient {
   }
 
   PSAPIClient.setContentTypeApplicationJson() {
-    _httpClientInstance?.options.contentType = "application/json";
+    _httpInstance?.options.contentType = "application/json";
   }
 }

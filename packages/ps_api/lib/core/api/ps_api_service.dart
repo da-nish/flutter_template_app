@@ -12,7 +12,7 @@ enum PSRequestMethod { post, get, request, upload }
 enum PSRequestType { authorize, public }
 
 class PSAPIService {
-  dio.Dio get dioClient => PSAPIClient.instance.httpClientInstance;
+  dio.Dio get dioClient => PSAPIClient.instance.httpInstance;
   dio.Dio get dioClientWithToken => PSAPIClient.instance.httpTokenInstance;
   dio.Dio get dioDummyClient => PSAPIClient.instance.dummyClientInstance;
   final PSBaseApiService apiService = PSBaseApiService.getInstance();
