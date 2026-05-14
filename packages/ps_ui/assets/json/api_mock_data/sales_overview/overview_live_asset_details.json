@@ -1,0 +1,78 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Live Asset details fetched successfully"
+        ],
+        "data": [
+            {
+                "assetDetails": [
+                    {
+                        "title": "Raised",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "₹0 Cr"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Invest Nows",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Agreement",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "0"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Opportunity Note",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "0"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Fee Received",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Detailed Profile Submitted",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

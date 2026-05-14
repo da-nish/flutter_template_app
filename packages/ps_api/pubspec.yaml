@@ -1,0 +1,23 @@
+name: ps_api
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: "https://flutter.dev"
+
+environment:
+  sdk: ^3.8.1
+  flutter: ">=1.17.0"
+
+dependencies:
+  connectivity_plus: ^6.0.3
+  dio: ^5.3.2
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  assets:
+    - assets/

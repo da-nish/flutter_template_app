@@ -1,0 +1,61 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Note list fetched successfully"
+        ],
+        "data": [
+            {
+                "userName": "Naman Mehta",
+                "userEmail": "naman.mehta@mailinator.com",
+                "userMobile": "+91 9988787654",
+                "noteCode": "xyz123",
+                "note": "Need to call @4pm"
+            },
+            {
+                "userName": "Danish Khan",
+                "userEmail": "danish@mailinator.com",
+                "userMobile": "+91 9988787653",
+                "noteCode": "xyz121",
+                "note": "New Investor @4pm"
+            },
+            {
+                "userName": "Manas Pakal",
+                "userEmail": "manas@mailinator.com",
+                "userMobile": "+91 9987787654",
+                "noteCode": "xyz123",
+                "note": "Test text here"
+            },
+            {
+                "userName": "John",
+                "userEmail": "john@mailinator.com",
+                "userMobile": "+1 998878765",
+                "noteCode": "xyz123",
+                "note": "JOHN here to check flow here, JOHN here to check flow here, JOHN here to check flow here"
+            },
+            {
+                "userName": "John",
+                "userEmail": "john@mailinator.com",
+                "userMobile": "+1 998878765",
+                "noteCode": "xyz123",
+                "note": "JOHN here to check flow here, JOHN here to check flow here, JOHN here to check flow here"
+            },
+            {
+                "userName": "John",
+                "userEmail": "john@mailinator.com",
+                "userMobile": "+1 998878765",
+                "noteCode": "xyz123",
+                "note": "JOHN here to check flow here, JOHN here to check flow here, JOHN here to check flow here"
+            },
+            {
+                "userName": "John",
+                "userEmail": "john@mailinator.com",
+                "userMobile": "+1 998878765",
+                "noteCode": "xyz123",
+                "note": "JOHN here to check flow here, JOHN here to check flow here, JOHN here to check flow here"
+            }
+        ]
+    }
+}

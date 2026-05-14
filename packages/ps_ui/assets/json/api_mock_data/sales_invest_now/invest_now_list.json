@@ -1,0 +1,87 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest Now List fetched successfully"
+        ],
+        "data": [
+            {
+                "profileName": "Naman Mehta",
+                "profileEmail": "naman.mehta@propertyshare.in",
+                "callScheduleStatus": "completed",
+                "values": [
+                    {
+                        "label": "IN ID",
+                        "value": "1234"
+                    },
+                    {
+                        "label": "Owner",
+                        "value": "Binoy"
+                    }
+                ],
+                "details": [
+                    {
+                        "label": "Amount",
+                        "value": "₹25,00,000"
+                    },
+                    {
+                        "label": "Activity",
+                        "value": "Opportunity Note: Sent to Kunal"
+                    }
+                ]
+            },
+            {
+                "profileName": "Samiksha Jain",
+                "profileEmail": "samiksha.jain@propertyshare.in",
+                "callScheduleStatus": "unscheduled",
+                "values": [
+                    {
+                        "label": "IN ID",
+                        "value": "1234"
+                    },
+                    {
+                        "label": "Owner",
+                        "value": "Binoy"
+                    }
+                ],
+                "details": [
+                    {
+                        "label": "Amount",
+                        "value": "₹25,00,000"
+                    },
+                    {
+                        "label": "Activity",
+                        "value": "Opportunity Note: Sent to Kunal"
+                    }
+                ]
+            },
+            {
+                "profileName": "Anchit Dangi",
+                "profileEmail": "anchit.dangi@propertyshare.in",
+                "callScheduleStatus": "scheduled",
+                "values": [
+                    {
+                        "label": "IN ID",
+                        "value": "1234"
+                    },
+                    {
+                        "label": "Owner",
+                        "value": "Binoy"
+                    }
+                ],
+                "details": [
+                    {
+                        "label": "Amount",
+                        "value": "₹25,00,000"
+                    },
+                    {
+                        "label": "Activity",
+                        "value": "Opportunity Note: Sent to Kunal"
+                    }
+                ]
+            }
+        ]
+    }
+}

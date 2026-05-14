@@ -1,0 +1,114 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest Now List fetched successfully"
+        ],
+        "data": [
+            {
+                "assetName": "Seawood GC ||",
+                "assetId": "1",
+                "tenentList": [
+                    {
+                        "tenentName": "Noas",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    },
+                    {
+                        "tenentName": "Final test",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "assetName": "Seawood GC ||",
+                "assetId": "1",
+                "tenentList": [
+                    {
+                        "tenentName": "Noas",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    },
+                    {
+                        "tenentName": "Final test",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "assetName": "Seawood GC ||",
+                "assetId": "1",
+                "tenentList": [
+                    {
+                        "tenentName": "Noas",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    },
+                    {
+                        "tenentName": "Final test",
+                        "tenentId": "_1",
+                        "tenentCollectionStatus": [
+                            {
+                                "period": "Dec 24",
+                                "status": "Due"
+                            },
+                            {
+                                "period": "Nov 24",
+                                "status": "Received"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

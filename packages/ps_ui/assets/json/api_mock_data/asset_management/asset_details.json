@@ -1,0 +1,65 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Details fetched successfully"
+        ],
+        "data": {
+            "collectionStatus": [
+                {
+                    "period": "Dec 24",
+                    "status": "Due"
+                },
+                {
+                    "period": "Nov 24",
+                    "status": "Received"
+                }
+            ],
+            "tenantDetails": [
+                {
+                    "key": "status",
+                    "value": [
+                        "Active"
+                    ],
+                    "highlight": true,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "status",
+                    "value": [
+                        "active"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "status",
+                    "value": [
+                        "active"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "status",
+                    "value": [
+                        "active"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name",
+                        "spoc mobile"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                }
+            ]
+        }
+    }
+}

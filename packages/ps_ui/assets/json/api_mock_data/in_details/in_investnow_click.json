@@ -1,0 +1,37 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest now clicks list fetched successfully"
+        ],
+        "data": [
+            {
+                "assetName": "Whitefield Tech Park",
+                "investmentAmount": "₹25,00,000",
+                "leadActivity": "Opportunity Note Sent to Kunal"
+            },
+            {
+                "assetName": "Whitefield Tech Park",
+                "investmentAmount": "₹25,00,000",
+                "leadActivity": "Opportunity Note Sent to Kunal"
+            },
+            {
+                "assetName": "Whitefield Tech Park",
+                "investmentAmount": "₹25,00,000",
+                "leadActivity": "Opportunity Note Sent to Kunal"
+            },
+            {
+                "assetName": "Whitefield Tech Park",
+                "investmentAmount": "₹25,00,000",
+                "leadActivity": "Opportunity Note Sent to Kunal"
+            },
+            {
+                "assetName": "Whitefield Tech Park",
+                "investmentAmount": "₹25,00,000",
+                "leadActivity": "Opportunity Note Sent to Kunal"
+            }
+        ]
+    }
+}

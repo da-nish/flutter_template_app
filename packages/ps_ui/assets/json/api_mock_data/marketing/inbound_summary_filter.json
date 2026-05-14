@@ -1,0 +1,241 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Filter options fetched successfully"
+        ],
+        "data": [
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": false,
+                "sectionId": "_time_period_",
+                "title": "Time Period",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT091",
+                        "isEnabled": true,
+                        "isSelected": true,
+                        "title": "Daily",
+                        "key": "daily"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz092",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Weekly",
+                        "key": "weekly"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz093",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Monthly",
+                        "key": "monthly"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz094",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Yearly",
+                        "key": "yearly"
+                    }
+                ],
+                "relatedSection": {
+                    "firstAsAllSelection": true,
+                    "allowMultiSelect": false,
+                    "sectionId": "_time_range_",
+                    "title": "Time Range",
+                    "filterType": "default",
+                    "filterOptionList": [
+                        {
+                            "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT091",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "Current",
+                            "key": "Current",
+                            "relationKey": [
+                                "daily",
+                                "weekly",
+                                "monthly",
+                                "yearly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz092",
+                            "isEnabled": true,
+                            "isSelected": true,
+                            "title": "7D",
+                            "key": "7D",
+                            "relationKey": [
+                                "daily"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz092",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "2W",
+                            "key": "2W",
+                            "relationKey": [
+                                "weekly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz092",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "3W",
+                            "key": "3W",
+                            "relationKey": [
+                                "weekly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz092",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "4W",
+                            "key": "4W",
+                            "relationKey": [
+                                "weekly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz093",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "2M",
+                            "key": "2M",
+                            "relationKey": [
+                                "monthly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz093",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "3M",
+                            "key": "3M",
+                            "relationKey": [
+                                "monthly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz093",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "6M",
+                            "key": "6M",
+                            "relationKey": [
+                                "monthly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz094",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "2Y",
+                            "key": "2Y",
+                            "relationKey": [
+                                "yearly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz094",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "3Y",
+                            "key": "3Y",
+                            "relationKey": [
+                                "yearly"
+                            ]
+                        },
+                        {
+                            "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz094",
+                            "isEnabled": true,
+                            "isSelected": false,
+                            "title": "5Y",
+                            "key": "5Y",
+                            "relationKey": [
+                                "yearly"
+                            ]
+                        }
+                    ],
+                    "relatedSection": {
+                        "firstAsAllSelection": true,
+                        "allowMultiSelect": false,
+                        "sectionId": "_id2",
+                        "title": "Time Range",
+                        "filterType": "default",
+                        "filterOptionList": [
+                            {
+                                "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz094",
+                                "isEnabled": true,
+                                "isSelected": false,
+                                "title": "5Y",
+                                "key": "5Y",
+                                "relationKey": [
+                                    "5Y"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_medium_name_",
+                "title": "Campaign Name",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": true,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Embassy",
+                        "key": "Embassy"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Loddha",
+                        "key": "Loddha"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Whitefield",
+                        "key": "Whitefield"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Seawood",
+                        "key": "seawood"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Prestige",
+                        "key": "Prestige"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest now details email buttons fetched successfully"
+        ],
+        "data": [
+            {
+                "emailButtonLabel": "Send Investment Note & Financial Model",
+                "leadActivityName": null,
+                "leadActivityEncryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                "investNowEncryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                "type": "investment_note_financial_model"
+            },
+            {
+                "emailButtonLabel": "Sign IA Agreement Reminder",
+                "leadActivityName": "IA Agreement - Sent to Investor",
+                "leadActivityEncryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                "investNowEncryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                "type": "sign_ia_agreement"
+            }
+        ]
+    }
+}

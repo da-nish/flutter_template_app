@@ -1,0 +1,79 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest Now List fetched successfully"
+        ],
+        "data": {
+            "tableHeader": [
+                "Month",
+                "Rent",
+                "Due Date"
+            ],
+            "tableData": [
+                [
+                    {
+                        "value": "Aug 2023",
+                        "info": "information of i icon",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    },
+                    {
+                        "value": "$26,00,000",
+                        "info": "",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    },
+                    {
+                        "value": "02/08/2023",
+                        "info": "",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    }
+                ],
+                [
+                    {
+                        "value": "Aug 2023",
+                        "info": "information of i icon",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    },
+                    {
+                        "value": "$26,00,000",
+                        "info": "",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    },
+                    {
+                        "value": "02/08/2023",
+                        "info": "",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    }
+                ],
+                [
+                    {
+                        "value": "Aug 2023",
+                        "info": "information of i icon",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    },
+                    {
+                        "value": "$26,00,000",
+                        "info": "",
+                        "highlight": true,
+                        "highlightColor": "#FF4359"
+                    },
+                    {
+                        "value": "02/08/2023",
+                        "info": "",
+                        "highlight": false,
+                        "highlightColor": "#FF8800"
+                    }
+                ]
+            ]
+        }
+    }
+}

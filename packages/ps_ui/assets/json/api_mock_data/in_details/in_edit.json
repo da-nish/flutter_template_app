@@ -1,0 +1,26 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Edit IN details fetched successfully"
+        ],
+        "data": {
+            "userName": "Naman Mehta",
+            "callScheduleStatus": "scheduled",
+            "note": {
+                "heading": "Investment Amount Amendment",
+                "content": "On Investment Amount Amendment, <b>IA Agreement</b> and <b>Opportunity Note</b> will be cancelled and the Lead will move to Opportunity Warm stage"
+            },
+            "investNowEncryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+            "details": {
+                "profileName": "Naman Mehta",
+                "profileEmail": "naman.mehta@propertyshare.in",
+                "profileId": "1234",
+                "investmentType": "Direct Investment",
+                "investmentAmount": "25,00,00"
+            }
+        }
+    }
+}

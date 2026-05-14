@@ -1,0 +1,74 @@
+name: ps_ui
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: "https://flutter.dev"
+
+environment:
+  sdk: ^3.5.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  cached_network_image: ^3.3.0
+  flutter:
+    sdk: flutter
+  flutter_typeahead: ^5.2.0
+  flutter_svg: ^2.0.3
+  fluttertoast: ^8.2.12
+  gif: ^2.3.0
+  intl: ^0.20.2
+  shimmer: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# The following section is specific to Flutter packages.
+flutter:
+  assets:
+    #=================Assets=====================#
+    - assets/
+    - assets/images/
+    - assets/images/logo/
+    - assets/images/png_icon/
+    - assets/gif/
+    - assets/svg/
+    - assets/fonts/
+    - assets/json/
+  fonts:
+    - family: ProximaNova
+      fonts:
+        - asset: assets/fonts/Proxima-Nova-Thin.otf
+          weight: 100
+        - asset: assets/fonts/Proxima-Nova-Thin-It.otf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Proxima-Nova-Light.otf
+          weight: 300
+        - asset: assets/fonts/Proxima-Nova-Light-It.otf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Proxima-Nova-Reg.ttf
+          weight: 400
+        - asset: assets/fonts/Proxima-Nova-Reg-It.otf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Proxima-Nova-Sbold.otf
+          weight: 500
+        - asset: assets/fonts/Proxima-Nova-Med-It.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Proxima-Nova-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Proxima-Nova-Bold-It.otf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Proxima-Nova-Xbold.otf
+          weight: 900
+        - asset: assets/fonts/Proxima-Nova-Xbold-It.otf
+          weight: 900
+          style: italic
+    - family: Gourmand
+      fonts:
+        - asset: assets/fonts/Gourmand.ttf
+          weight: 400

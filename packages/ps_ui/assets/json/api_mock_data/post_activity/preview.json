@@ -1,0 +1,14 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "IA Agreement preview detail fetched successfully"
+        ],
+        "data": {
+            "email_content": "email html content",
+            "document_link": "documenet url"
+        }
+    }
+}

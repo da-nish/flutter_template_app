@@ -1,0 +1,27 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Partner List fetched successfully"
+        ],
+        "data": [
+            {
+                "partner_name": "mahendra ulaka",
+                "partner_email": "mahendra.ulaka+partner@propertyshare.in",
+                "partner_code": "jgasjdgjagdjg"
+            },
+            {
+                "partner_name": "mahendra ulaka",
+                "partner_email": "mahendra.ulaka+partner@propertyshare.in",
+                "partner_code": "jgasjdgjagdjg"
+            },
+            {
+                "partner_name": "mahendra ulaka",
+                "partner_email": "mahendra.ulaka+partner@propertyshare.in",
+                "partner_code": "jgasjdgjagdjg"
+            }
+        ]
+    }
+}

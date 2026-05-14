@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="73.44" viewBox="0 0 64 73.44">
+  <g id="Email_Sent" data-name="Email Sent" transform="translate(0 9.44)">
+    <path id="Path_9" data-name="Path 9" d="M25.25,116.5,15,124.112l10.738,13.575Z" transform="translate(-13.125 -101.937)" fill="#68544f"/>
+    <path id="Path_10" data-name="Path 10" d="M411.587,116.5l-.488,21.188,10.738-13.575Z" transform="translate(-359.712 -101.937)" fill="#53433f"/>
+    <path id="Path_11" data-name="Path 11" d="M132.25,1.875V47.938a1.857,1.857,0,0,1-1.875,1.875h-37.5A1.857,1.857,0,0,1,91,47.938V1.875A1.857,1.857,0,0,1,92.875,0h37.5A1.857,1.857,0,0,1,132.25,1.875Z" transform="translate(-79.625)" fill="#f7f0eb"/>
+    <path id="Path_12" data-name="Path 12" d="M276.625,1.875V47.938a1.857,1.857,0,0,1-1.875,1.875H256V0h18.75A1.857,1.857,0,0,1,276.625,1.875Z" transform="translate(-224)" fill="#efe2dd"/>
+    <g id="Group_162060" data-name="Group 162060" transform="translate(18.875 11.375)">
+      <path id="Path_13" data-name="Path 13" d="M177.25,92.875a1.857,1.857,0,0,1-1.875,1.875h-22.5a1.875,1.875,0,0,1,0-3.75h22.5A1.857,1.857,0,0,1,177.25,92.875Z" transform="translate(-151 -91)" fill="#e1d3ce"/>
+      <path id="Path_14" data-name="Path 14" d="M177.25,152.875a1.857,1.857,0,0,1-1.875,1.875h-22.5a1.875,1.875,0,0,1,0-3.75h22.5A1.857,1.857,0,0,1,177.25,152.875Z" transform="translate(-151 -143.5)" fill="#e1d3ce"/>
+      <path id="Path_15" data-name="Path 15" d="M166,212.875a1.857,1.857,0,0,1-1.875,1.875h-11.25a1.875,1.875,0,0,1,0-3.75h11.25A1.857,1.857,0,0,1,166,212.875Z" transform="translate(-151 -196)" fill="#e1d3ce"/>
+    </g>
+    <g id="Group_162061" data-name="Group 162061" transform="translate(32 11.375)">
+      <path id="Path_16" data-name="Path 16" d="M256,214.75V211a1.875,1.875,0,0,1,0,3.75Z" transform="translate(-256 -196)" fill="#cdbfba"/>
+      <path id="Path_17" data-name="Path 17" d="M267.25,154.75H256V151h11.25a1.875,1.875,0,0,1,0,3.75Z" transform="translate(-256 -143.5)" fill="#cdbfba"/>
+      <path id="Path_18" data-name="Path 18" d="M267.25,94.75H256V91h11.25a1.875,1.875,0,0,1,0,3.75Z" transform="translate(-256 -91)" fill="#cdbfba"/>
+    </g>
+    <path id="Path_19" data-name="Path 19" d="M63.325,178.3c-.037,0-1.2-.9-1.2-.9l-3.113,2.325L33.125,199.038a1.74,1.74,0,0,1-2.25,0L4.988,179.725,1.875,177.4s-1.163.9-1.2.9A1.854,1.854,0,0,0,0,179.725V213.6a5.617,5.617,0,0,0,5.625,5.625h52.75A5.617,5.617,0,0,0,64,213.6V179.725A1.854,1.854,0,0,0,63.325,178.3Z" transform="translate(0 -155.225)" fill="#fdbf00"/>
+    <path id="Path_20" data-name="Path 20" d="M288,179.725V213.6a5.617,5.617,0,0,1-5.625,5.625H256V199.45a1.893,1.893,0,0,0,1.125-.413l25.887-19.312,3.113-2.325s1.162.9,1.2.9A1.854,1.854,0,0,1,288,179.725Z" transform="translate(-224 -155.225)" fill="#ff9f00"/>
+    <g id="Group_162065" data-name="Group 162065" transform="translate(9.391 -9.44)">
+      <circle id="Ellipse_182" data-name="Ellipse 182" cx="12" cy="12" r="12" transform="translate(30.609)" fill="#ee001c"/>
+    </g>
+    <text id="_1" data-name="1" transform="translate(49 7)" fill="#fff" font-size="14" font-family="ProximaNova-Semibold, Proxima Nova" font-weight="600"><tspan x="0" y="0">1</tspan></text>
+  </g>
+</svg>

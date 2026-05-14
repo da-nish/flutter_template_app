@@ -1,0 +1,23 @@
+name: ps_db
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: "http"
+
+environment:
+  sdk: ^3.5.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  encrypt: 5.0.1
+  shared_preferences: ^2.5.3
+
+flutter:
+  assets:
+    - assets/

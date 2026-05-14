@@ -1,0 +1,26 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Investments fetched successfully"
+        ],
+        "data": [
+            {
+                "assetName": "Whitefield Tech Park",
+                "details": {
+                    "investmentAmount": "₹25,00,000",
+                    "profileType": "self"
+                }
+            },
+            {
+                "assetName": "Lodha iThink",
+                "details": {
+                    "investmentAmount": "₹25,00,000",
+                    "profileType": "self"
+                }
+            }
+        ]
+    }
+}

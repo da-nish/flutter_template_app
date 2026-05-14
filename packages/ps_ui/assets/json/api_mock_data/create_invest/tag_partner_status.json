@@ -1,0 +1,18 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "User IA tagged details fetched successfully"
+        ],
+        "data": {
+            "partner_tagged_status": true,
+            "partner_details": {
+                "partner_name": "mahendra ulaka",
+                "partner_email": "mahendra.ulaka+partner@propertyshare.in",
+                "partner_code": "jkhskdjh987978"
+            }
+        }
+    }
+}

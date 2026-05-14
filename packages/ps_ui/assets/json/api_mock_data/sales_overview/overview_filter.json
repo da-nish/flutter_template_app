@@ -1,0 +1,49 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Filter options fetched successfully"
+        ],
+        "data": [
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id1",
+                "title": null,
+                "filterType": "default/date/time_period",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz01",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Dev",
+                        "key": "Dev"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz02",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Binoy",
+                        "key": "Binoy"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz03",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "D",
+                        "key": "D"
+                    }
+                ]
+            }
+        ]
+    }
+}

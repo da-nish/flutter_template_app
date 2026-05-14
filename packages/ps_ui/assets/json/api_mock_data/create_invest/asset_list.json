@@ -1,0 +1,28 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Asset list fetched successfully"
+        ],
+        "data": [
+            {
+                "asset_code": "GHJGFHJFsdfsdf34531",
+                "asset_name": "Prestige Tech Platina -1"
+            },
+            {
+                "asset_code": "GHJGFHJFsdfsdf34532",
+                "asset_name": "Prestige Tech Platina -2"
+            },
+            {
+                "asset_code": "GHJGFHJFsdfsdf34533",
+                "asset_name": "Prestige Tech Platina -3"
+            },
+            {
+                "asset_code": "GHJGFHJFsdfsdf34534",
+                "asset_name": "Prestige Tech Platina -4"
+            }
+        ]
+    }
+}

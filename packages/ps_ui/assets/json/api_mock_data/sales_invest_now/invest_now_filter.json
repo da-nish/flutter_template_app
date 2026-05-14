@@ -1,0 +1,109 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Filter options fetched successfully"
+        ],
+        "data": [
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id1",
+                "title": "Asset",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Prestige Tech Platina",
+                        "key": "prestige-tech-platina"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Embassy Tech Park",
+                        "key": "embassy-tech-park"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz03",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Tech Park",
+                        "key": "tech-park"
+                    }
+                ]
+            },
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id2",
+                "title": "Lead Stage",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Invest Now",
+                        "key": "invest now"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Client",
+                        "key": "client"
+                    }
+                ]
+            },
+            {
+                "firstAsAllSelection": false,
+                "allowMultiSelect": true,
+                "sectionId": "_id3",
+                "title": "Asset",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Prestige Tech Platina",
+                        "key": "prestige-tech-platina"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": false,
+                        "isSelected": false,
+                        "title": "Embassy Tech Park",
+                        "key": "embassy-tech-park"
+                    }
+                ]
+            }
+        ]
+    }
+}

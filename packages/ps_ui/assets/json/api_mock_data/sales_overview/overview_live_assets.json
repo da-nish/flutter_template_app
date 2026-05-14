@@ -1,0 +1,160 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "On Going Opportunity Summary fetched successfully"
+        ],
+        "data": [
+            {
+                "opportunityName": "Prestige Tech Park",
+                "opportunityType": "property",
+                "targetAmount": "₹4.2 Cr",
+                "showTargetAmount": true,
+                "details": [
+                    {
+                        "title": "Raised | Target (to date)",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "₹2.2 Cr"
+                            },
+                            {
+                                "label": null,
+                                "value": "₹4.2 Cr"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Invest Nows",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "60"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Agreement",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "15"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "25"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Opportunity Note",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "30"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "100"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Fee Received",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "10"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Detailed Profile Submitted",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "80"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "opportunityName": "Walton Summit",
+                "opportunityType": "property",
+                "targetAmount": null,
+                "showTargetAmount": false,
+                "details": [
+                    {
+                        "title": "Raised | Target (to date)",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "₹2.2 Cr"
+                            },
+                            {
+                                "label": null,
+                                "value": "₹4.2 Cr"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Invest Nows",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "50"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Agreement",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "100"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Opportunity Note",
+                        "values": [
+                            {
+                                "label": "Signed",
+                                "value": "60"
+                            },
+                            {
+                                "label": "Sent",
+                                "value": "40"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "IA Fee Received",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "20"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Detailed Profile Submitted",
+                        "values": [
+                            {
+                                "label": null,
+                                "value": "70"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

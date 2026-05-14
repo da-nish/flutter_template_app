@@ -1,0 +1,36 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Call history fetched successfully"
+        ],
+        "data": [
+            {
+                "callScheduledTime": "03/01/2022 11:30",
+                "callDetails": {
+                    "assetName": "Whitefield Tech Park",
+                    "callLength": "22mins",
+                    "leadOwner": "Asma"
+                }
+            },
+            {
+                "callScheduledTime": "13/11/2019 17:30",
+                "callDetails": {
+                    "assetName": "Lodha iThink",
+                    "callLength": "22mins",
+                    "leadOwner": "Binoy"
+                }
+            },
+            {
+                "callScheduledTime": "13/11/2019 17:30",
+                "callDetails": {
+                    "assetName": "Lodha iThink",
+                    "callLength": "22mins",
+                    "leadOwner": "Binoy"
+                }
+            }
+        ]
+    }
+}

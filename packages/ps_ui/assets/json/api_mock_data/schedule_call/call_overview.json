@@ -1,0 +1,18 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Timezones fetched successfully"
+        ],
+        "data": {
+            "userName": "Naman Mehta",
+            "userEmail": "naman.mehta@propertyshare.in",
+            "countryCode": "+91",
+            "contactNumber": "6657786555",
+            "modeOfMeeting": "Phone Call",
+            "AssignedTo": "Binoy"
+        }
+    }
+}

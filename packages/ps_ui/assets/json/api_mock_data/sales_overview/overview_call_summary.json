@@ -1,0 +1,33 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Call Summary fetched successfully"
+        ],
+        "data": [
+             {
+                "type": "scheduled",
+                "level": "Scheduled",
+                "count": 6
+            },
+             {
+                "type": "pending",
+                "level": "Pending",
+                "count": 0
+            },
+             {
+                "type": "completed",
+                "level": "Completed",
+                "count": 6
+            },
+            {
+               "type": "cancelled",
+               "level": "Cancelled",
+               "count": 9
+           }
+        ]
+        
+    }
+}

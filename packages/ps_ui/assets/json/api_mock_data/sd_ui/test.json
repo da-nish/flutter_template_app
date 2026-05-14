@@ -1,0 +1,11 @@
+{
+    "type": "Text",
+    "data": {
+        "key": "text1",
+        "text": "Hello, World!",
+        "style": {
+            "color": "0xFF0000FF",
+            "fontSize": 20
+        }
+    }
+}

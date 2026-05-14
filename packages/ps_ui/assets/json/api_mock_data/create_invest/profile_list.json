@@ -1,0 +1,28 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "User Profiles fetched successfully"
+        ],
+        "data": [
+            {
+                "profile_code": "GHJGFHJFsdfsdf34534",
+                "profile_name": "self"
+            },
+            {
+                "profile_code": "GHJGFHJFsdfsdf34533",
+                "profile_name": "mahendra ulaka"
+            },
+            {
+                "profile_code": "GHJGFHJFsdfsdf34532",
+                "profile_name": "abc "
+            },
+            {
+                "profile_code": "GHJGFHJFsdfsdf34531",
+                "profile_name": "hdhgdhg jhghg"
+            }
+        ]
+    }
+}

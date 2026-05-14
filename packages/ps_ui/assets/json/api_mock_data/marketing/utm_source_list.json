@@ -1,0 +1,52 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "List fetched successfully"
+        ],
+        "data": [
+            {
+                "title": "gxr155cc",
+                "labels": [
+                    "Adgebra",
+                    "AP & Telangana Mobile 16Sep’21",
+                    "2023-06-14 to 2023-06-18"
+                ]
+            },
+            {
+                "title": "gxr155cc",
+                "labels": [
+                    "Adgebra",
+                    "AP & Telangana Mobile 16Sep’21",
+                    "2023-06-14 to 2023-06-18"
+                ]
+            },
+            {
+                "title": "gxr155cc",
+                "labels": [
+                    "Adgebra",
+                    "AP & Telangana Mobile 16Sep’21",
+                    "2023-06-14 to 2023-06-18"
+                ]
+            },
+            {
+                "title": "gxr155cc",
+                "labels": [
+                    "Adgebra",
+                    "AP & Telangana Mobile 16Sep’21",
+                    "2023-06-14 to 2023-06-18"
+                ]
+            },
+            {
+                "title": "gxr155cc",
+                "labels": [
+                    "Adgebra",
+                    "AP & Telangana Mobile 16Sep’21",
+                    "2023-06-14 to 2023-06-18"
+                ]
+            }
+        ]
+    }
+}

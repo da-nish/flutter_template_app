@@ -1,0 +1,32 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Timezones fetched successfully"
+        ],
+        "data": [
+            {
+                "key": "Pacific\/Honolulu",
+                "name": " Hawaii Time",
+                "timezoneName": "(GMT-10:00) Hawaii Time"
+            },
+            {
+                "key": "America\/Anchorage",
+                "name": " Alaska Time",
+                "timezoneName": "(GMT-8:00) Alaska Time"
+            },
+            {
+                "key": "America\/Los_Angeles",
+                "name": " Pacific Time",
+                "timezoneName": "(GMT-7:00) Pacific Time"
+            },
+            {
+                "key": "America\/Denver",
+                "name": " Mountain Time - Denver",
+                "timezoneName": "(GMT-6:00) Mountain Time - Denver"
+            }
+        ]
+    }
+}

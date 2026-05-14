@@ -1,0 +1,26 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "On Going Opportunity Summary fetched successfully"
+        ],
+        "data": [
+            {
+                "opportunityName": "Prestige Tech Park",
+                "opportunityType": "property",
+                "targetAmount": "₹4.2 Cr",
+                "opportunityId": "_2234234",
+                "showTargetAmount": true
+            },
+            {
+                "opportunityName": "Walton Summit",
+                "opportunityType": "property",
+                "opportunityId": "_2234234",
+                "targetAmount": null,
+                "showTargetAmount": false
+            }
+        ]
+    }
+}

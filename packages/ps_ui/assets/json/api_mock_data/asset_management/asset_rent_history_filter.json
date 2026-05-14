@@ -1,0 +1,35 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Filter options fetched successfully"
+        ],
+        "data": [
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id1",
+                "title": "SPV",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Propshare Office Parks Private Limited",
+                        "key": "Propshare Office Parks Private Limited"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": true,
+                        "title": "OffProp Private Limited",
+                        "key": "OffProp Private Limited"
+                    }
+                ]
+            }
+        ]
+    }
+}

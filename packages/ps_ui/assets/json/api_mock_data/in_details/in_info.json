@@ -1,0 +1,103 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest now details fetched successfully"
+        ],
+        "data": {
+            "userName": "Naman Mehta",
+            "userEmail": "naman.mehta@propertyshare.in",
+            "userMobile": "+91 9987787654",
+            "profileId": "1234",
+            "noteDetails": {
+                "note": "Call me back post 7:30 PM",
+                "nodeCode": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09"
+            },
+            "callDetails": {
+                "status": "scheduled",
+                "time": "05/06/2023 12:30 PM",
+                "owner": "Binoy",
+                "asset": "Walton Summit"
+            },
+            "infoSection": [
+                {
+                    "label": "IN ID",
+                    "value": "1234"
+                },
+                {
+                    "label": "Email",
+                    "value": "naman.mehta@propertyshare.in"
+                },
+                {
+                    "label": "Phone",
+                    "value": "+91 8878362745"
+                },
+                {
+                    "label": "Asset",
+                    "value": "Walton Summit"
+                },
+                {
+                    "label": "Amount",
+                    "value": "₹25,00,000"
+                },
+                {
+                    "label": "Activity",
+                    "value": "Opportunity Note: Sent To Kunal"
+                },
+                {
+                    "label": "Prob. Of Investing",
+                    "value": "45%"
+                },
+                {
+                    "label": "Call Scheduled",
+                    "value": "Yes"
+                },
+                {
+                    "label": "Risk Profile",
+                    "value": "Yes"
+                },
+                {
+                    "label": "Stage",
+                    "value": "Opportunity Hot"
+                },
+                {
+                    "label": "Owner",
+                    "value": "Binoy"
+                },
+                {
+                    "label": "Referred By",
+                    "value": "-"
+                },
+                {
+                    "label": "Created At",
+                    "value": "12/03/2022 17:30"
+                },
+                {
+                    "label": "What's Next",
+                    "value": "http://dashboard.pscapitalweb.com/investment-timeline/UlNiZFFMSlo4TkZ0M0FVQWMvMjRUUT09"
+                }
+            ],
+            "buttons": [
+                {
+                    "buttonLabel": "Edit",
+                    "buttonCode": "EDIT"
+                },
+                {
+                    "buttonLabel": "Post Activity",
+                    "buttonCode": "POST ACTIVITY",
+                    "lastPostedActivity": "Invest Now"
+                },
+                {
+                    "buttonLabel": "Call/Schedule",
+                    "buttonCode": "CALL/SCHEDULE"
+                },
+                {
+                    "buttonLabel": "User Notes",
+                    "buttonCode": "USER NOTES"
+                }
+            ]
+        }
+    }
+}

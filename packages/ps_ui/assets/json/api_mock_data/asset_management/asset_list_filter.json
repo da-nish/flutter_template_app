@@ -1,0 +1,107 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Filter options fetched successfully"
+        ],
+        "data": [
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id1",
+                "title": "Status",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Invoice pending",
+                        "key": "Invoice_pending"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Due",
+                        "key": "due"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz03",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Over Due",
+                        "key": "over_due"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz03",
+                        "isEnabled": true,
+                        "isSelected": true,
+                        "title": "Partially Received",
+                        "key": "partially_received"
+                    }
+                ]
+            },
+            {
+                "firstAsAllSelection": true,
+                "allowMultiSelect": true,
+                "sectionId": "_id2",
+                "title": "Asset",
+                "filterType": "default",
+                "filterOptionList": [
+                    {
+                        "encryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "All",
+                        "key": "All"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Embassy",
+                        "key": "Embassy"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Loddha",
+                        "key": "Loddha"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Whitefield",
+                        "key": "Whitefield"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Seawood",
+                        "key": "seawood"
+                    },
+                    {
+                        "encryptedId": "R1o2VVcvd3pydkhyUDlZVHJHMVowZz09",
+                        "isEnabled": true,
+                        "isSelected": false,
+                        "title": "Prestige",
+                        "key": "Prestige"
+                    }
+                ]
+            }
+        ]
+    }
+}

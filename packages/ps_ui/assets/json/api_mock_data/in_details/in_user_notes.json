@@ -1,0 +1,32 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest now clicks list fetched successfully"
+        ],
+        "data": {
+            "userName": "Naman Mehta",
+            "userEncryptedId": "NkR5cVhCMDExU2JlbklNYitZWSs0QT09",
+            "details": [
+                {
+                    "label": "Budget",
+                    "value": "25,00,000"
+                },
+                {
+                    "label": "Goals",
+                    "value": "Long Term"
+                },
+                {
+                    "label": "Occupation",
+                    "value": "IT"
+                },
+                {
+                    "label": "Notes",
+                    "value": "Walton- Explained. Can Invest B- Inverkip- He understood the model. Q-1- Can he use a US doller account Q-2- Can the transfer happen in GBP?"
+                }
+            ]
+        }
+    }
+}

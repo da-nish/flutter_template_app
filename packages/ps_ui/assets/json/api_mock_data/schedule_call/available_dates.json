@@ -1,0 +1,85 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Available time slots fetched successfully"
+        ],
+        "data": [
+            {
+                "date": "09\/01",
+                "day": "Today",
+                "enable": true,
+                "time_slots": {
+                    "morning": [
+                        {
+                            "time": "2024-01-09T09:00:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "9:00 AM"
+                        },
+                        {
+                            "time": "2024-01-09T09:30:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "9:30 AM"
+                        },
+                        {
+                            "time": "2024-01-09T10:00:00+0530",
+                            "slotsAvailable": 0,
+                            "display_time": "10:00 AM"
+                        }
+                    ],
+                    "afternoon": [
+                        {
+                            "time": "2024-01-09T12:00:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "12:00 PM"
+                        },
+                        {
+                            "time": "2024-01-09T12:30:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "12:30 PM"
+                        },
+                        {
+                            "time": "2024-01-09T01:01:00+0530",
+                            "slotsAvailable": 0,
+                            "display_time": "01:00 PM"
+                        }
+                    ],
+                    "evening": [
+                        {
+                            "time": "2024-01-09T04:00:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "4:00 PM"
+                        },
+                        {
+                            "time": "2024-01-09T04:30:00+0530",
+                            "slotsAvailable": 1,
+                            "display_time": "4:30 PM"
+                        },
+                        {
+                            "time": "2024-01-09T05:00:00+0530",
+                            "slotsAvailable": 0,
+                            "display_time": "05:00 PM"
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "10\/01",
+                "day": "Tomorrow",
+                "enable": false
+            },
+            {
+                "date": "11\/01",
+                "day": "Thu",
+                "enable": false
+            },
+            {
+                "date": "12\/01",
+                "day": "Fri",
+                "enable": false
+            }
+        ]
+    }
+}

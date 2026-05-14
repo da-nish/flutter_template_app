@@ -1,0 +1,65 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Invest Now List fetched successfully"
+        ],
+        "data": [
+            [
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name"
+                    ],
+                    "highlight": true,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                }
+            ],
+            [
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                },
+                {
+                    "key": "SPOC 1",
+                    "value": [
+                        "spoc name",
+                        "spoc mobile"
+                    ],
+                    "highlight": false,
+                    "highlightColor": "#FF8800"
+                }
+            ]
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Users fetched successfully"
+        ],
+        "data": [
+            {
+                "user_code": "GHJGFHJFsdfsdf34534",
+                "user_first_name": "Biondy",
+                "user_last_name": "Ashem",
+                "user_email": "user@email.com"
+            },
+            {
+                "user_code": "GHJGFHJFsdfsdf34534",
+                "user_first_name": "Binoy",
+                "user_last_name": "last name",
+                "user_email": "user@email.com"
+            },
+            {
+                "user_code": "GHJGFHJFsdfsdf34534",
+                "user_first_name": "Avinash name",
+                "user_last_name": "last name",
+                "user_email": "user@email.com"
+            },
+            {
+                "user_code": "GHJGFHJFsdfsdf34534",
+                "user_first_name": "Temp name",
+                "user_last_name": "last name",
+                "user_email": "user@email.com"
+            }
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Reasons fetched successfully"
+        ],
+        "data": [
+            {
+                "title": "reason1",
+                "ask_reason": false
+            },
+            {
+                "title": "reason1",
+                "ask_reason": false
+            },
+            {
+                "title": "reason1",
+                "ask_reason": false
+            },
+            {
+                "title": "reason1",
+                "ask_reason": false
+            },
+            {
+                "title": "reason1",
+                "ask_reason": false
+            },
+            {
+                "title": "Others",
+                "ask_reason": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "responseStatus": "success",
+    "responseCode": "success",
+    "responseHttpCode": 200,
+    "response": {
+        "message": [
+            "Lead Activity list fetched successfully"
+        ],
+        "data": [
+            {
+                "lead_activity_code": "JGHJGJ87jfjgh1",
+                "activity_type": "close",
+                "activity_name": "close"
+            },
+            {
+                "lead_activity_code": "JGHJGsdfsdfJ87jfjgh2",
+                "activity_type": "follow_up",
+                "activity_name": "follow up"
+            },
+            {
+                "lead_activity_code": "JGHJGJ87jfjfgdggh3",
+                "activity_type": "send_ia_agreement",
+                "activity_name": "send ia agreement"
+            }
+        ]
+    }
+}
