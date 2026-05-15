@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poc_flutter_app/core/base/dependency_setup.dart';
 import 'package:poc_flutter_app/core/env/environment_data.dart';
+import 'package:poc_flutter_app/routes/app_router.dart';
 
 
 
@@ -9,12 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routerConfig: appRouter,
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -48,11 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          //
-
-          //
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            TextButton(
+            child: const Text('Dashboard'),
+            onPressed: () {
+              appRouter.push(AppRoutes.dashboard);
+            },
+            ),
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
