@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:poc_flutter_app/screens/login_screen/login_screen.dart';
 
 import '../screens/dashboard_screen.dart';
 import '../screens/home_screen.dart';
@@ -9,6 +10,7 @@ import '../screens/settings_screen.dart';
 class AppRoutes {
   static const String home = '/';
   static const String login = '/login';
+  static const String login1 = '/login1';
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String dashboard = '/dashboard';
@@ -25,6 +27,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.login,
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.login1,
+      builder: (context, state) => const LoginScreen1(),
     ),
     GoRoute(
       path: AppRoutes.profile,
