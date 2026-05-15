@@ -30,15 +30,18 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.login1,
-      builder: (context, state) => const LoginScreen1(),
+      builder: (context, state) {
+        final text = state.extra as String?;
+        return LoginScreen1(initialEmail: text);
+      },
     ),
     GoRoute(
       path: AppRoutes.profile,
       // builder: (context, state) => const ProfileScreen(),
       builder: (context, state) {
-    final user = state.extra as User;
-    return ProfileScreen(user: user);
-  },
+        final user = state.extra as User;
+        return ProfileScreen(user: user);
+      },
     ),
     GoRoute(
       path: AppRoutes.settings,

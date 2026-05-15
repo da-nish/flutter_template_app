@@ -4,12 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'login_controller.dart';
 
 class LoginScreen1 extends ConsumerWidget {
-  const LoginScreen1({super.key});
+  final String? initialEmail;
+  const LoginScreen1({super.key, this.initialEmail});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(loginControllerProvider);
-    final controller = ref.read(loginControllerProvider.notifier);
+    final state = ref.watch(loginControllerProvider(initialEmail));
+    final controller = ref.read(loginControllerProvider(initialEmail).notifier);
 
     return Scaffold(
       appBar: AppBar(
@@ -20,6 +21,7 @@ class LoginScreen1 extends ConsumerWidget {
         child: Column(
           children: [
             TextField(
+              controller: controller.emailController,
               keyboardType: TextInputType.emailAddress,
               onChanged: controller.updateEmail,
               decoration: const InputDecoration(

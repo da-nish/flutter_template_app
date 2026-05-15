@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Login Screen'),
             ),
             ElevatedButton(
-              onPressed: () => appRouter.push(AppRoutes.login1),
+              onPressed: () => appRouter.push(AppRoutes.login1, extra: "111112"),
               // goRouter.push(AppRoutes.login),
               child: const Text('Login Screen 1'),
             ),
