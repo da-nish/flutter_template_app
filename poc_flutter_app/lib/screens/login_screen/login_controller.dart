@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poc_flutter_app/screens/login_screen/login_state.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 // import 'package:http/http.dart' as http;
 
 // import 'login_state.dart';
@@ -18,24 +19,19 @@ import 'package:poc_flutter_app/screens/login_screen/login_state.dart';
 //   isAutoDispose: true,
 // );
 
-final loginControllerProvider = NotifierProvider.family<LoginController, LoginState, String?>(
-      (arg) => LoginController(arg),
-      isAutoDispose: true,
-);
+// final loginControllerProvider = NotifierProvider.family<LoginController, LoginState, String?>(
+//       (arg) => LoginController(arg),
+//       isAutoDispose: true,
+// );
 
-class LoginController extends Notifier<LoginState> {
+part 'login_controller.g.dart';
 
-  LoginController(this.initialState);
-
-  final String? initialState;
+@riverpod
+class LoginController extends _$LoginController {
 
    @override
-  LoginState build() {
-    print(initialState);
+  LoginState build(String? initialState) {
     emailController.text = initialState ?? "---";
-    // updateEmail(initialState ?? "");
-    // print("2");
-
     return LoginState(email: initialState ?? "");
   }
 
