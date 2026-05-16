@@ -24,12 +24,12 @@ class PSBaseApiService extends BaseApiServiceInterface {
       required Function(dynamic) parser,
       bool overrideModel = false}) async {
     // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
-    if (!(await isInternetConnected())) {
-      return Future.value(
-        ApiResponseWrapper.networkError(
-            statusCode: ApiResponseListener.noInternetConnection),
-      );
-    }
+    // if (!(await isInternetConnected())) {
+    //   return Future.value(
+    //     ApiResponseWrapper.networkError(
+    //         statusCode: ApiResponseListener.noInternetConnection),
+    //   );
+    // }
 
     try {
       final Response response = await dio.post(
@@ -58,10 +58,10 @@ class PSBaseApiService extends BaseApiServiceInterface {
       Options? options}) async {
     // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
 
-    if (!(await isInternetConnected())) {
-      return Future.value(ApiResponseWrapper.networkError(
-          statusCode: ApiResponseListener.noInternetConnection));
-    }
+    // if (!(await isInternetConnected())) {
+    //   return Future.value(ApiResponseWrapper.networkError(
+    //       statusCode: ApiResponseListener.noInternetConnection));
+    // }
     Response response;
     try {
       if (responseTypesAsBytes) {
@@ -142,10 +142,10 @@ class PSBaseApiService extends BaseApiServiceInterface {
       Function(int count, int total)? showDownloadProgress,
       Options? options,
       bool urlOverride = false}) async {
-    if (!(await isInternetConnected())) {
-      return Future.value(ApiResponseWrapper.networkError(
-          statusCode: ApiResponseListener.noInternetConnection));
-    }
+    // if (!(await isInternetConnected())) {
+    //   return Future.value(ApiResponseWrapper.networkError(
+    //       statusCode: ApiResponseListener.noInternetConnection));
+    // }
 
     try {
       // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";

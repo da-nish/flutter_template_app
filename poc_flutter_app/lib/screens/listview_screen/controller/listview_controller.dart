@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:poc_flutter_app/core/network/model/user_list_model.dart';
 import 'package:poc_flutter_app/screens/listview_screen/repository/listview_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -6,7 +7,7 @@ part 'listview_controller.g.dart';
 
 class ListViewState {
   final bool loading;
-  final List items;
+  final List<UserList> items;
   final bool hasMore;
 
   ListViewState({required this.loading, required this.items, required this.hasMore});
@@ -22,7 +23,7 @@ class ListViewState {
 
   ListViewState copyWith({
     bool? loading,
-    List? items,
+    List<UserList>? items,
     bool? hasMore,
   }) {
     return ListViewState(
@@ -37,6 +38,8 @@ class ListViewState {
 @riverpod
 class ListviewController extends _$ListviewController {
 
+  RepositoryI dataRepo = ListviewRepositoryI();
+
   @override
   ListViewState build() {
     print("calling. 0");
@@ -50,16 +53,20 @@ class ListviewController extends _$ListviewController {
     print("calling. 1");
     // if(state.loading) return;
     state = state.copyWith(loading: true);
-
-    final repo = ListviewRepositoryI();
-    repo.getDatat(
-      
-    );
-
-    await Future.delayed(Duration(seconds: 4), (){
+    await Future.delayed(Duration(seconds: 0), (){
       print("calling 222");
-      state = state.copyWith(items: localItems, loading: false);
+      // state = state.copyWith(items: localItems, loading: false);
     });
+
+    
+    await dataRepo.getUserlist<UserList, List<UserList>>(
+      onSuccess: (p0) {
+        state = state.copyWith(items: p0.data, loading: false);
+      },
+      onError: (p0){
+        print("fail");
+      }
+    );
   }
 
 

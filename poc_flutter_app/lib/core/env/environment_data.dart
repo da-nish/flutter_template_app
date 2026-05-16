@@ -21,7 +21,7 @@ class Environment {
   
 
     return Environment._internal(
-      baseURL: "baseURL",
+      baseURL:  "https://jsonplaceholder.typicode.com", //"https://mocki.io",
       displayLog: _toBoolean("true"),
       crashReport: _toBoolean("false"),
       environmentType: type,

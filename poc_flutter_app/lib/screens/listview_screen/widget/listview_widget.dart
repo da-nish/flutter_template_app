@@ -39,17 +39,17 @@ class ListviewWidget extends ConsumerWidget {
             child: ListTile(
               leading: CircleAvatar(
                 child: Text(
-                  item['title']![0],
+                  item.title,
                 ),
               ),
-              title: Text(item['title']!),
-              subtitle: Text(item['subtitle']!),
+              title: Text(item.title),
+              subtitle: Text(item.body),
               trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      '${item['title']} clicked',
+                      '${item.title} clicked',
                     ),
                   ),
                 );
