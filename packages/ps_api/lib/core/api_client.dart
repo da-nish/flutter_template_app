@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ps_api/core/interceptor/app_param_interceptor.dart';
-import '../utils/custom_logger.dart';
+
+import 'utils/custom_logger.dart';
 
 class PSAPIClient {
   PSAPIClient._();

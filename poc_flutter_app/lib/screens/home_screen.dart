@@ -26,6 +26,12 @@ class HomeScreen extends StatelessWidget {
               child: const Text('Login Screen 1'),
             ),
             const SizedBox(height: 16),
+             ElevatedButton(
+              onPressed: () => appRouter.push(AppRoutes.listview),
+              // goRouter.push(AppRoutes.login),
+              child: const Text('Listview'),
+            ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
                 final result = await context.push(AppRoutes.profile, extra: User(name: 'VVVV', age: '25'));

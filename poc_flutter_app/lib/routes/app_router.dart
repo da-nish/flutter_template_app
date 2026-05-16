@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:poc_flutter_app/screens/listview_screen/view/listview_screen.dart';
 import 'package:poc_flutter_app/screens/login_screen/login_screen.dart';
 import 'package:poc_flutter_app/screens/profile_sub_route/profile_admin_screen.dart';
 import 'package:poc_flutter_app/screens/profile_sub_route/profile_company_screen.dart';
@@ -14,6 +15,7 @@ class AppRoutes {
   static const String home = '/';
   static const String login = '/login';
   static const String login1 = '/login1';
+  static const String listview = '/listview';
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String dashboard = '/dashboard';
@@ -38,6 +40,12 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) {
         final text = state.extra as String?;
         return LoginScreen1(initialEmail: text);
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.listview,
+      builder: (context, state) {
+        return ListViewScreen();
       },
     ),
     GoRoute(
