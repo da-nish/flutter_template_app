@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:poc_flutter_app/routes/app_router.dart';
 
 class User{
   final String name;
@@ -35,6 +36,24 @@ class ProfileScreen extends StatelessWidget {
             Text(user.name, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             Text('john.doe@example.com', style: TextStyle(fontSize: 16, color: Colors.grey)),
+            TextButton(
+            child: const Text('Profile Company'),
+            onPressed: () {
+            appRouter.push('${AppRoutes.profile}/company');
+            },
+            ),
+            TextButton(
+            child: const Text('Profile User'),
+            onPressed: () {
+             appRouter.push('${AppRoutes.profile}/user');
+            },
+            ),
+            TextButton(
+            child: const Text('Profile Admin'),
+            onPressed: () {
+             appRouter.push('${AppRoutes.profile}/admin');
+            },
+            ),
           ],
         ),
       ),

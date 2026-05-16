@@ -1,5 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:poc_flutter_app/screens/login_screen/login_screen.dart';
+import 'package:poc_flutter_app/screens/profile_sub_route/profile_admin_screen.dart';
+import 'package:poc_flutter_app/screens/profile_sub_route/profile_company_screen.dart';
+import 'package:poc_flutter_app/screens/profile_sub_route/profile_user_screen.dart';
 
 import '../screens/dashboard_screen.dart';
 import '../screens/home_screen.dart';
@@ -14,6 +17,8 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String dashboard = '/dashboard';
+
+
 }
 
 final GoRouter appRouter = GoRouter(
@@ -42,6 +47,26 @@ final GoRouter appRouter = GoRouter(
         final user = state.extra as User;
         return ProfileScreen(user: user);
       },
+      routes: [
+          GoRoute(
+            path: "admin",
+            builder: (context, state) {
+              return ProfileAdminScreen();
+            },
+          ),
+          GoRoute(
+            path: "user",
+            builder: (context, state) {
+              return ProfileUserScreen();
+            },
+          ),
+          GoRoute(
+            path: "company",
+            builder: (context, state) {
+              return ProfileCompanyScreen();
+            },
+          ),
+      ]
     ),
     GoRoute(
       path: AppRoutes.settings,
