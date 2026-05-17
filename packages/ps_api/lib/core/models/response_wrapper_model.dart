@@ -1,5 +1,5 @@
-import 'package:ps_api/core/models/result_model.dart';
 
+enum ApiStatus { empty, loading, success, networkError, serverError }
 class ApiResponseWrapper<T> {
   String? responseStatus;
   String? responseCode;

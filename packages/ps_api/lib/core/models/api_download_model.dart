@@ -1,7 +1,7 @@
 import 'package:ps_api/core/models/api_error_model.dart';
-import 'package:ps_api/core/models/result_model.dart';
+import 'package:ps_api/core/models/response_wrapper_model.dart';
 
-class ApiResponse<T> {
+class ApiDownloadResponse<T> {
   ApiErrorModel? apiErrorModel;
   T? responseData;
   int? httpStatusCode;
@@ -9,18 +9,18 @@ class ApiResponse<T> {
   String? message = "";
   bool isOfflineData = false;
 
-  ApiResponse.from({
+  ApiDownloadResponse.from({
     this.httpStatusCode,
     this.responseData,
     this.message = "",
     this.isOfflineData = false,
   }) : status = responseData != null ? ApiStatus.success : ApiStatus.empty;
 
-  ApiResponse.networkError(
+  ApiDownloadResponse.networkError(
       {this.httpStatusCode, this.responseData, this.message = ""})
       : status = ApiStatus.networkError;
 
-  ApiResponse.serverError(
+  ApiDownloadResponse.serverError(
       {this.httpStatusCode, this.responseData, this.message = ""})
       : status = ApiStatus.serverError;
 

@@ -1,7 +1,7 @@
 import 'package:ps_api/core/models/api_error_model.dart';
-import 'package:ps_api/core/models/response_wrapper.dart';
+import 'package:ps_api/core/models/response_wrapper_model.dart';
 
-mixin ApiResponseListener {
+mixin ApiFailStatus {
   static const int httpOk = 200;
   static const int badRequest = 400;
   static const int unauthorized = 401;
@@ -10,6 +10,7 @@ mixin ApiResponseListener {
   static const int internalServerError = 500;
   static const int badGateWay = 502;
   static const int serviceUnavailable = 503;
+  static const int requestTimeout = 504;
   static const int noInternetConnection = -101;
   static const int unknown = -102;
   static const int dioCancelRequest = 000;
@@ -29,6 +30,7 @@ mixin ApiResponseListener {
           case internalServerError:
           case methodNotAllowed:
           case badGateWay:
+          case requestTimeout:
           case serviceUnavailable:
             return ApiErrorModel(
                 'TranslationKeys.technicalIssue.tr', statusCode,

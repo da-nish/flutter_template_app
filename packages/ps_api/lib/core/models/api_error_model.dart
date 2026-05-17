@@ -1,4 +1,4 @@
-import 'package:ps_api/core/models/response_wrapper.dart';
+import 'package:ps_api/core/models/response_wrapper_model.dart';
 
 class ApiErrorModel {
   final String message;
