@@ -16,10 +16,9 @@ class InitialBinding {
     PSAPIClient.instance.setConfig(
       baseUrl: baseURL,
       displayLog: true,
-      clientIdentifier: "DEMO_APP",
-      interceptors: [
-        //internceptors
-      ],
+      // clientIdentifier: "DEMO_APP",
+      publicInterceptors: [],
+      secureInterceptors: [],
     );
   }
 }

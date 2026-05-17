@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' as dio;
-import 'package:poc_flutter_app/core/network/model_parser/model_register.dart';
 import 'package:ps_api/core/api/ps_api_service.dart';
+import 'package:ps_api/core/api_client.dart';
 import 'package:ps_api/core/models/response_wrapper.dart';
 
 
@@ -16,33 +16,28 @@ abstract class BaseController {
     // PSDioProvider.instance.setConfig(baseUrl: "baseUrl", displayLog: true);
   }
 
-  Future<void> apiRequest<T, D>({
+  Future<void> apiRequest<T>({
     required RequestType requestType,
     required String endPoint,
     required RequestMethod method,
+    required T Function(dynamic) parser,
     Map<String, dynamic>? body,
     Map<String, dynamic>? qParams,
     dio.Options? options,
     bool overrideModel = false,
-    Function(ApiResponseWrapper<D>)? onSuccess,
+    Function(ApiResponseWrapper<T>)? onSuccess,
     bool urlOverride = false,
-    Function(ApiResponseWrapper<D>)? onError,
+    Function(ApiResponseWrapper<T>)? onError,
     Function()? finlay,
     dio.FormData? formData,
     Function(int count, int total)? onUploadProgress,
     dio.CancelToken? cancelToken,
     // bool? cancelStatus,
   }) async {
-    dynamic parser = ModelRegister.constructors[T];
 
-    if (parser == null) {
-      throw Exception(
-          "A proper constructor callback must be registered for all api model classes. Couldn't find registry for $T");
-    }
-
-    await _base.apiRequest<T, D>(
+    await _base.apiRequest<T>(
       requestType: requestType == RequestType.authorize
-          ? PSRequestType.authorize
+          ? PSRequestType.secure
           : PSRequestType.public,
       body: body,
       qParams: qParams,

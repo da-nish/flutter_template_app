@@ -1,26 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:ps_api/core/interceptor/app_param_interceptor.dart';
+import 'package:ps_api/core/utils/custom_logger.dart';
 
-import 'utils/custom_logger.dart';
+enum PSRequestType { public, secure}
 
 class PSAPIClient {
   PSAPIClient._();
 
   static PSAPIClient instance = PSAPIClient._();
 
-  static String _baseUrl = '';
-  static bool _displayLog = true;
-  static String _clientIdentifier = "-";
+  Dio _publicClientInstance = Dio();
+  Dio get publicClientInstance => _publicClientInstance;
 
-  Dio? _httpInstance;
-  Dio get httpInstance => _httpInstance ?? setHttpClient(dioInterceptors: []);
+  Dio _secureClientInstance = Dio();
+  Dio get secureClientInstance => _secureClientInstance;
 
-  Dio? _httpTokenInstance;
-  Dio get httpTokenInstance => _httpTokenInstance ?? setHttpClient(dioInterceptors: []);
-
-  Dio? _dummyClientInstance;
-  Dio get dummyClientInstance => _dummyClientInstance ?? setDummyClient();  
+  Dio _dummyClientInstance = Dio();
+  Dio get dummyClientInstance => _dummyClientInstance;  
 
   final _prettyDioLogger = PSCustomAPILogger(
     requestHeader: true,
@@ -30,95 +26,65 @@ class PSAPIClient {
     error: true,
     compact: true,
   );
-  // Environment environment = Get.find<Environment>();
-  //  _instance!.options.headers["1212"] = "ABCD"; pass header like this.
 
   BaseOptions get _options => BaseOptions(
-      baseUrl: _baseUrl,
-      connectTimeout: const Duration(milliseconds: 16 * 1000),
-      receiveTimeout: const Duration(milliseconds: 16 * 1000),
-      sendTimeout: const Duration(milliseconds: 16 * 1000),
-      headers: {"x-cid": "mnik"},
-    );
-
+    connectTimeout: const Duration(milliseconds: 16 * 1000),
+    receiveTimeout: const Duration(milliseconds: 16 * 1000),
+    sendTimeout: const Duration(milliseconds: 16 * 1000),
+    headers: {"x-cid": "mnik"},
+  );
 
   void setConfig({
     required String baseUrl,
     required bool displayLog,
     Function(String)? errorHandler,
-    required String clientIdentifier,
-    required List<Interceptor> interceptors,
+    required List<Interceptor> secureInterceptors,
+    required List<Interceptor> publicInterceptors,
   }) {
-    _baseUrl = baseUrl;
-    _displayLog = displayLog;
-    _clientIdentifier = clientIdentifier;
     if (errorHandler != null) {}
-
-    // Environment environment = Get.find<Environment>();
-    // _baseUrl = environment.baseURL;
-    _httpInstance = setHttpClient(dioInterceptors: interceptors);
-    _httpTokenInstance = setTokenClient(dioInterceptors: interceptors);
+    _publicClientInstance = _setClient(clientType: PSRequestType.public, baseUrl: baseUrl, displayLog: displayLog, interceptors: publicInterceptors);
+    _secureClientInstance = _setClient(clientType: PSRequestType.secure, baseUrl: baseUrl, displayLog: displayLog,interceptors: secureInterceptors);
     _dummyClientInstance = setDummyClient();
   }
 
-  Dio setHttpClient({required List<Interceptor> dioInterceptors}) {
-    if (_httpInstance == null) {
-      _httpInstance = Dio(_options.copyWith());
-    } else {
-      _httpInstance!.interceptors.clear();
+  Dio _setClient({required PSRequestType clientType, required String baseUrl, required bool displayLog, required List<Interceptor> interceptors}) {
+    final Dio client = clientType==PSRequestType.public ? _publicClientInstance :_secureClientInstance;
+    client.options = _options.copyWith(baseUrl: baseUrl);
+
+    client.interceptors.clear();
+
+    for (Interceptor element in interceptors) {
+      client.interceptors.add(element);
     }
 
-    for (Interceptor element in dioInterceptors) {
-      _httpInstance!.interceptors.add(element);
+    if (displayLog) {
+      client.interceptors.add(_prettyDioLogger);
     }
-    if (_displayLog) {
-      _httpInstance!.interceptors.add(_prettyDioLogger);
-    }
-
-    _httpInstance!.interceptors
-        .add(AppParamInterceptor(appIdentifier: _clientIdentifier));
-
-    return _httpInstance!;
+    return client;
   }
 
-  ///returns a Dio client with Access token in header
-  Dio setTokenClient({required List<Interceptor> dioInterceptors}) {
-    if (_httpTokenInstance == null) {
-      _httpTokenInstance = Dio(_options.copyWith());
-    } else {
-      _httpTokenInstance!.interceptors.clear();
-    }
-
-    for (Interceptor element in dioInterceptors) {
-      _httpTokenInstance!.interceptors.add(element);
-    }
-    if (_displayLog) {
-      _httpTokenInstance!.interceptors.add(_prettyDioLogger);
-    }
-
-    _httpTokenInstance!.interceptors
-        .add(AppParamInterceptor(appIdentifier: _clientIdentifier));
-
-    return _httpTokenInstance!;
-  }
-
-  void setClientAuthTokens({required String accessToken}) {
+  void setSecureClientAuthTokens({required String accessToken}) {
     PSCustomLogger.log(
       header: "Dio Header Update",
-      text: accessToken,
+      text: accessToken.substring(0, 40),
       label: "SET: auth token",
     );
-    _httpTokenInstance?.options.headers["authorizationToken"] =
-        "Bearer $accessToken";
-    _httpTokenInstance?.options.headers["authorization"] =
-        "Bearer $accessToken";
-
+    final client = _getClient(PSRequestType.secure);
+    client.options.headers["authorizationToken"] = "Bearer $accessToken";
+    client.options.headers["authorization"] = "Bearer $accessToken";
     // print(_httpTokenInstance.hashCode);
   }
 
-  void removeClientAuthTokens() {
-    _httpTokenInstance?.options.headers.remove("authorizationToken");
-    _httpTokenInstance?.options.headers.remove("authorization");
+
+  Dio _getClient(PSRequestType clientType){
+    final client = clientType==PSRequestType.public ? _publicClientInstance :_secureClientInstance;
+    return client;
+  }
+
+  void removeClientAuthTokens(PSRequestType clientType) {
+    final client = _getClient(clientType);
+    client.options.headers.remove("authorizationToken");
+    client.options.headers.remove("authorization");
   }
 
   Dio setDummyClient() {
@@ -133,19 +99,14 @@ class PSAPIClient {
         debugPrint(":::Dummy Request:::");
       },
     );
-
-    if (_dummyClientInstance == null) {
-      _dummyClientInstance = Dio(_options);
-      _dummyClientInstance!.interceptors.add(dummyLogger);
-      return _dummyClientInstance!;
-    } else {
-      _dummyClientInstance!.interceptors.clear();
-      _dummyClientInstance!.interceptors.add(dummyLogger);
-      return _dummyClientInstance!;
-    }
+    _dummyClientInstance.interceptors.clear();
+    _dummyClientInstance.options = _options.copyWith();
+    _dummyClientInstance.interceptors.add(dummyLogger);
+    return _dummyClientInstance;
   }
 
-  PSAPIClient.setContentTypeApplicationJson() {
-    _httpInstance?.options.contentType = "application/json";
+  void setContentTypeApplicationJson(PSRequestType clientType) {
+    final client = _getClient(clientType);
+    client.options.contentType = "application/json";
   }
 }

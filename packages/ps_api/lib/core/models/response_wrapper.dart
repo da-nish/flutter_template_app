@@ -8,34 +8,54 @@ class ApiResponseWrapper<T> {
   T? data;
   int? statusCode;
   ApiStatus status;
-  ApiResponseWrapper.from(
-      {required this.message,
-      required this.data,
-      required this.responseCode,
-      required this.responseHttpCode,
-      required this.responseStatus,
-      this.statusCode})
-      : status = data != null ? ApiStatus.success : ApiStatus.empty;
+  ApiResponseWrapper.from({
+    required this.message,
+    required this.data,
+    required this.responseCode,
+    required this.responseHttpCode,
+    required this.responseStatus,
+    this.statusCode,
+  }) : status = data != null ? ApiStatus.success : ApiStatus.empty;
   ApiResponseWrapper.networkError({this.statusCode, this.data})
-      : status = ApiStatus.networkError;
+    : status = ApiStatus.networkError;
 
-  ApiResponseWrapper.serverError(
-      {this.statusCode,
-      this.data,
-      required this.message,
-      this.responseCode,
-      this.responseHttpCode,
-      this.responseStatus})
-      : status = ApiStatus.serverError;
+  ApiResponseWrapper.serverError({
+    this.statusCode,
+    this.data,
+    required this.message,
+    this.responseCode,
+    this.responseHttpCode,
+    this.responseStatus,
+  }) : status = ApiStatus.serverError;
 
-  factory ApiResponseWrapper.fromJson(Map<String, dynamic> json) =>
-      ApiResponseWrapper.from(
-        responseStatus: json["responseStatus"],
-        responseCode: json["responseCode"],
-        responseHttpCode: json["responseHttpCode"],
+  factory ApiResponseWrapper.fromJson({
+    required dynamic json,
+    required T Function(dynamic json) parser,
+    required bool isListType,
+    bool overrideModel = true,
+  }) {
+    final parsedResponse = parser(
+      overrideModel ? json : json['response']['data'],
+    );
+
+    if (overrideModel) {
+      return ApiResponseWrapper.from(
+        responseStatus: "",
+        responseCode: "",
+        responseHttpCode: 200,
         message: [],
-        data: json["response"],
+        data: parsedResponse,
       );
+    }
+
+    return ApiResponseWrapper.from(
+      responseStatus: (json["responseStatus"] ?? "").toString(),
+      responseCode: (json["responseCode"] ?? "").toString(),
+      responseHttpCode: json["responseHttpCode"] ?? 200,
+      message: (json['response']['message'] ?? []).cast<String>(),
+      data: parsedResponse,
+    );
+  }
 
   bool get isSuccess => status == ApiStatus.success;
 }

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ps_api/core/models/api_response.dart';
 import 'package:ps_api/core/models/response_wrapper.dart';
-import 'package:ps_api/core/network/api_error_response.dart';
 import 'package:ps_api/core/network/base_api_service_interface.dart';
 
 class PSBaseApiService extends BaseApiServiceInterface {
@@ -14,22 +13,15 @@ class PSBaseApiService extends BaseApiServiceInterface {
   PSBaseApiService._internal();
 
   @override
-  Future<ApiResponseWrapper<D>> postRequest<T, D>(
+  Future<ApiResponseWrapper<T>> postRequest<T>(
       {required String url,
       required Map<String, dynamic> body,
       required Dio dio,
       Options? options,
       bool urlOverride = false,
       CancelToken? cancelToken,
-      required Function(dynamic) parser,
+      required T Function(dynamic) parser,
       bool overrideModel = false}) async {
-    // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
-    // if (!(await isInternetConnected())) {
-    //   return Future.value(
-    //     ApiResponseWrapper.networkError(
-    //         statusCode: ApiResponseListener.noInternetConnection),
-    //   );
-    // }
 
     try {
       final Response response = await dio.post(
@@ -40,28 +32,28 @@ class PSBaseApiService extends BaseApiServiceInterface {
       );
 
       return Future.value(
-          handleDioResponse<T, D>(response, parser, overrideModel));
+          handleDioResponse<T>(
+            responseData: response, 
+            parser: parser, 
+            overrideModel: false
+          )
+        );
     } on DioException catch (e) {
       return super.handleDioError(e);
     }
   }
 
   @override
-  Future<ApiResponseWrapper<D>> getRequest<T, D>(
+  Future<ApiResponseWrapper<T>> getRequest<T>(
       {required String url,
       required Dio dio,
-      required Function(dynamic) parser,
+      required T Function(dynamic) parser,
       Map<String, dynamic>? qParams,
       bool urlOverride = false,
       bool responseTypesAsBytes = false,
       bool overrideModel = false,
       Options? options}) async {
-    // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
 
-    // if (!(await isInternetConnected())) {
-    //   return Future.value(ApiResponseWrapper.networkError(
-    //       statusCode: ApiResponseListener.noInternetConnection));
-    // }
     Response response;
     try {
       if (responseTypesAsBytes) {
@@ -73,54 +65,28 @@ class PSBaseApiService extends BaseApiServiceInterface {
             await dio.get(url, queryParameters: qParams, options: options);
       }
       return Future.value(
-          handleDioResponse<T, D>(response, parser, overrideModel));
+          handleDioResponse<T>(
+            responseData: response, 
+            parser: parser, 
+            overrideModel: overrideModel)
+        );
     } on DioException catch (e) {
       return handleDioError(e);
     }
   }
 
-  // Future<ApiResponseWrapper<T>> requestApiCall<T>(String url,
-  //     {Map<String, dynamic>? qParams,
-  //     bool urlOverride = false,
-  //     bool responseTypesAsBytes = false,
-  //     bool overrideModel = false,
-  //     Options? options}) async {
-  //   // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
-
-  //   if (!(await isInternetConnected())) {
-  //     return Future.value(ApiResponseWrapper.networkError(
-  //         statusCode: ApiResponseListener.noInternetConnection));
-  //   }
-  //   Response response;
-  //   try {
-  //     if (responseTypesAsBytes) {
-  //       Options ops = options ?? Options();
-  //       ops.responseType = ResponseType.bytes;
-  //       response = await _dio.request(url, data: qParams, options: ops);
-  //     } else {
-  //       response = await _dio.request(url, data: qParams, options: options);
-  //     }
-
-  //     return Future.value(handleDioResponse(response, overrideModel));
-  //   } on DioError catch (e) {
-  //     return handleDioError(e);
-  //   }
-  // }
-
   @override
   Future<ApiResponseWrapper<T>> uploadRequest<T>(
-      String url,
+      {required String url,
+      required Dio dio,
+      required T Function(dynamic) parser,
       String? path,
       String? fileKey,
       String? fileName,
-      Dio dio,
       Function(int count, int total)? onUploadProgress,
-      {Options? options,
+      Options? options,
       FormData? formData}) async {
-    if (!(await isInternetConnected())) {
-      return Future.value(ApiResponseWrapper.networkError(
-          statusCode: ApiResponseListener.noInternetConnection));
-    }
+    
     try {
       // url = "${Environment.staticBaseUrl}$url";
       final fd = formData ??
@@ -130,7 +96,13 @@ class PSBaseApiService extends BaseApiServiceInterface {
           });
       final response = await dio.post(url,
           data: fd, onSendProgress: onUploadProgress, options: options);
-      return Future.value(handleDioResponse(response, (_) {}));
+      return Future.value(
+          handleDioResponse<T>(
+            responseData: response, 
+            parser: parser, 
+            overrideModel: false
+          )
+        );
     } on DioException catch (e) {
       return super.handleDioError(e);
     }
@@ -164,9 +136,10 @@ class PSBaseApiService extends BaseApiServiceInterface {
   }
 
   @override
-  Future<ApiResponseWrapper<D>> dummyRequest<T, D>(
-    String url,
-    Dio dio, {
+  Future<ApiResponseWrapper<T>> dummyRequest<T>(
+    {required String url,
+    required Dio dio, 
+    required T Function(dynamic) parser,
     Map<String, dynamic>? qParams,
     bool urlOverride = false,
     bool responseTypesAsBytes = false,
@@ -174,17 +147,17 @@ class PSBaseApiService extends BaseApiServiceInterface {
     Options? options,
     dynamic responseData,
   }) async {
-    // url = urlOverride ? url : "${Environment.staticBaseUrl}$url";
 
-    if (!(await isInternetConnected())) {
-      return Future.value(ApiResponseWrapper.networkError(
-          statusCode: ApiResponseListener.noInternetConnection));
-    }
     try {
       Response response =
           Response(data: responseData, requestOptions: RequestOptions());
       return Future.value(
-          handleDioResponse<T, D>(response, (_) {}, overrideModel));
+          handleDioResponse<T>(
+            responseData: response, 
+            parser: parser, 
+            overrideModel: overrideModel
+          )
+        );
     } on DioException catch (e) {
       return handleDioError(e);
     }

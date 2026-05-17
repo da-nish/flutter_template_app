@@ -50,18 +50,50 @@ class ListviewController extends _$ListviewController {
 
 
   Future<void> loadItems() async{
-    print("calling. 1");
+    print("====> loading items");
+
     // if(state.loading) return;
     state = state.copyWith(loading: true);
     await Future.delayed(Duration(seconds: 0), (){
-      print("calling 222");
       // state = state.copyWith(items: localItems, loading: false);
     });
 
     
-    await dataRepo.getUserlist<UserList, List<UserList>>(
+
+    await dataRepo.getClient<ClientModel>(
+      parser: (json) => ClientModel.fromJson(json),
+      body: {
+        "grant_type": "client_credentials",
+        "client_id":"9e5185cb-7814-4a23-81f7-a30d67806967",
+        "client_secret": "FE0Sy3yDY3J4mOZMszHqyYPqSKGDLQvuioIPwvxC",
+        "scope": ""
+      },
       onSuccess: (p0) {
-        state = state.copyWith(items: p0.data, loading: false);
+        state = state.copyWith(loading: false);
+      },
+      onError: (p0){
+        print("fail");
+      }
+    );
+
+    // await dataRepo.getUserlist<List<UserList>>(
+    //   parser: (json){
+    //     return (json as List).map((e) => UserList.fromJson(e)).toList();
+    //   },
+    //   onSuccess: (p0) {
+    //     state = state.copyWith(items: p0.data, loading: false);
+    //   },
+    //   onError: (p0){
+    //     print("fail");
+    //   }
+    // );
+
+    await dataRepo.getUser<UserList>(
+      parser: (json){
+        return UserList.fromJson(json);
+      },
+      onSuccess: (p0) {
+        state = state.copyWith(items: [p0.data!], loading: false);
       },
       onError: (p0){
         print("fail");

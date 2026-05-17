@@ -1,53 +1,63 @@
 import 'package:dio/dio.dart';
 import 'package:ps_api/core/models/response_wrapper.dart' as response;
-import 'package:ps_api/core/utils/network_helper.dart';
 import 'package:ps_api/core/network/api_error_response.dart';
-import 'package:ps_api/core/network/mapper.dart';
+import 'package:ps_api/core/utils/network_helper.dart';
 
 abstract class BaseApiServiceInterface {
-  Future<response.ApiResponseWrapper<D>> dummyRequest<T, D>(String url, Dio dio,
-      {Map<String, dynamic>? qParams,
-      bool responseTypesAsBytes = false,
-      Options? options});
+  Future<response.ApiResponseWrapper<T>> dummyRequest<T>({
+    required String url,
+    required Dio dio,
+    required T Function(dynamic) parser,
+    Map<String, dynamic>? qParams,
+    bool responseTypesAsBytes = false,
+    Options? options,
+  });
 
-  Future<response.ApiResponseWrapper<D>> postRequest<T, D>(
-      {required String url,
-      required Map<String, dynamic> body,
-      required Dio dio,
-      required Function(dynamic) parser,
-      Options? options});
+  Future<response.ApiResponseWrapper<T>> postRequest<T>({
+    required String url,
+    required Map<String, dynamic> body,
+    required Dio dio,
+    required T Function(dynamic) parser,
+    Options? options,
+  });
 
-  Future<response.ApiResponseWrapper<D>> getRequest<T, D>(
-      {required String url,
-      required Dio dio,
-      required Function(dynamic) parser,
-      Map<String, dynamic>? qParams,
-      bool responseTypesAsBytes = false,
-      Options? options});
+  Future<response.ApiResponseWrapper<T>> getRequest<T>({
+    required String url,
+    required Dio dio,
+    required T Function(dynamic) parser,
+    Map<String, dynamic>? qParams,
+    bool responseTypesAsBytes = false,
+    Options? options,
+  });
 
-  Future<response.ApiResponseWrapper<T>> uploadRequest<T>(
-      String url,
-      String path,
-      String fileKey,
-      String fileName,
-      Dio dio,
-      Function(int count, int total)? onUploadProgress,
-      {Options? options,
-      FormData? formData});
+  Future<response.ApiResponseWrapper<T>> uploadRequest<T>({
+    required String url,
+    required Dio dio,
+    required T Function(dynamic) parser,
+    required String path,
+    String fileKey,
+    String fileName,
+    Function(int count, int total)? onUploadProgress,
+    Options? options,
+    FormData? formData,
+  });
 
-  Future<dynamic> downloadRequest(String url, String path, Dio dio,
-      {dynamic data,
-      Function(int count, int total)? showDownloadProgress,
-      Options? options});
+  Future<dynamic> downloadRequest(
+    String url,
+    String path,
+    Dio dio, {
+    dynamic data,
+    Function(int count, int total)? showDownloadProgress,
+    Options? options,
+  });
 
-  Future<response.ApiResponseWrapper<T>> handleDioError<T>(DioException e) {
+  response.ApiResponseWrapper<T> handleDioError<T>(DioException e) {
     if (e.type == DioExceptionType.cancel) {
-      return Future.value(response.ApiResponseWrapper.networkError(
-          statusCode: ApiResponseListener.dioCancelRequest));
+      return response.ApiResponseWrapper.networkError(statusCode: ApiResponseListener.dioCancelRequest);
     }
-    // print("=====>>> ${e.response}");
+
     if (e.response != null) {
-      // Logger.e("DioException", error: e.error, stackTrace: e.stackTrace);
+
       Map<String, dynamic>? json;
       try {
         json = (e.response?.data ?? {}) as Map<String, dynamic>;
@@ -55,7 +65,8 @@ abstract class BaseApiServiceInterface {
         json = {};
       }
 
-      return Future.value(response.ApiResponseWrapper.serverError(
+      return 
+        response.ApiResponseWrapper.serverError(
           responseStatus: json.isNotEmpty
               ? json['responseStatus']
               : e.response?.statusMessage ?? '',
@@ -65,25 +76,52 @@ abstract class BaseApiServiceInterface {
           message: json['response'] != null
               ? (json['response']['message'] ?? []).cast<String>()
               : ["Something went wrong"],
-          statusCode: e.response?.statusCode ?? -1));
+          statusCode: e.response?.statusCode ?? -1,
+      );
     } else {
       if (e.toString().contains('SocketException')) {
         if (e.toString().contains('Network is unreachable')) {
-          return Future.value(response.ApiResponseWrapper.networkError(
-              statusCode: ApiResponseListener.noInternetConnection));
+          return 
+            response.ApiResponseWrapper.networkError(
+              statusCode: ApiResponseListener.noInternetConnection,
+          );
         }
-        return Future.value(response.ApiResponseWrapper.serverError(
-            message: [], statusCode: ApiResponseListener.internalServerError));
+        return 
+          response.ApiResponseWrapper.serverError(
+            message: [],
+            statusCode: ApiResponseListener.internalServerError,
+        );
       }
-      return Future.value(response.ApiResponseWrapper.serverError(
-          message: [], statusCode: ApiResponseListener.unknown));
+      return 
+        response.ApiResponseWrapper.serverError(
+          message: [],
+          statusCode: ApiResponseListener.unknown,
+      );
     }
   }
 
-  response.ApiResponseWrapper<D>? handleDioResponse<T, D>(
-      Response response, Function(dynamic) parser,
-      [bool overrideModel = false]) {
-    return MapperFactory.map<T, D>(response, parser, overrideModel);
+  response.ApiResponseWrapper<T>? handleDioResponse<T>({
+    required Response responseData,
+    required T Function(dynamic) parser, 
+    required bool overrideModel,}
+  ) {
+    try {
+      final isListType = responseData.data is List;
+      final parsedResponse = response.ApiResponseWrapper<T>.fromJson(
+        json: responseData.data,
+        parser: parser,
+        overrideModel: overrideModel,
+        isListType: isListType,
+      );
+
+      return parsedResponse;
+    } catch (error) {
+      throw Exception(
+        "\n\n\n======================== Response Parse Failure ========================"
+        "\nError: $error"
+        "\n========================================================================\n\n"
+        );
+    }
   }
 
   Future<bool> isInternetConnected() async {

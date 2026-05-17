@@ -61,6 +61,5 @@ class PSNetworkHelper {
         _isNetworkConnected = false;
         break;
     }
-    print("---- status:: $result - $_isNetworkConnected");
   }
 }
