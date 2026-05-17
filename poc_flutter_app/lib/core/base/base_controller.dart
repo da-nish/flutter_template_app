@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart' as dio;
-import 'package:ps_api/core/api/ps_api_service.dart';
-import 'package:ps_api/core/api_client.dart';
-import 'package:ps_api/core/models/response_wrapper.dart';
+import 'package:ps_api/ps_api.dart';
 
 
 

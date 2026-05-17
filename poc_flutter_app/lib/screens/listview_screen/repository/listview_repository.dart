@@ -10,7 +10,8 @@
 
 import 'package:poc_flutter_app/core/base/base_controller.dart';
 import 'package:poc_flutter_app/core/network/endpoints/api_endpoint.dart';
-import 'package:ps_api/core/models/response_wrapper.dart';
+import 'package:ps_api/ps_api.dart';
+
 
 abstract class RepositoryI {
 

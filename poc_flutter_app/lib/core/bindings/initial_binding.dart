@@ -2,7 +2,6 @@
 
 import 'package:poc_flutter_app/core/base/dependency_setup.dart';
 import 'package:poc_flutter_app/core/env/environment_data.dart';
-import 'package:poc_flutter_app/core/network/model_parser/model_register.dart';
 import 'package:ps_api/core/api_client.dart';
 
 class InitialBinding {
@@ -11,7 +10,6 @@ class InitialBinding {
     // SharedPreferenceManager.instance;
     // Get.put<ApiService>(ApiService.getInstance(), permanent: true);
 
-    ModelRegister.registerModelClasses(); // IMP
     String baseURL = getIt<Environment>().baseURL;
     PSAPIClient.instance.setConfig(
       baseUrl: baseURL,

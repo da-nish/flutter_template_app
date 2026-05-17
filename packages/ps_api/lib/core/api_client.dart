@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:ps_api/core/utils/custom_logger.dart';
 
 enum PSRequestType { public, secure}
@@ -96,7 +95,7 @@ class PSAPIClient {
       error: true,
       compact: true,
       logPrint: (object) {
-        debugPrint(":::Dummy Request:::");
+        // debugPrint(":::Dummy Request:::");
       },
     );
     _dummyClientInstance.interceptors.clear();

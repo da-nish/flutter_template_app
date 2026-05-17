@@ -3,10 +3,8 @@ library ps_api;
 import 'dart:async';
 
 import 'package:dio/dio.dart' as dio;
-import 'package:ps_api/core/api_client.dart';
-import 'package:ps_api/core/models/api_error_model.dart';
-import 'package:ps_api/core/models/response_wrapper_model.dart';
 import 'package:ps_api/core/network/base_api_service.dart';
+import 'package:ps_api/ps_api.dart';
 
 enum PSRequestMethod { post, get, request, upload }
 

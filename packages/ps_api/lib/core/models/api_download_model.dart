@@ -1,5 +1,5 @@
-import 'package:ps_api/core/models/api_error_model.dart';
-import 'package:ps_api/core/models/response_wrapper_model.dart';
+
+import 'package:ps_api/core/models/export.dart';
 
 class ApiDownloadResponse<T> {
   ApiErrorModel? apiErrorModel;
