@@ -55,26 +55,26 @@ class ListviewController extends _$ListviewController {
     // if(state.loading) return;
     state = state.copyWith(loading: true);
     await Future.delayed(Duration(seconds: 0), (){
-      // state = state.copyWith(items: localItems, loading: false);
+      state = state.copyWith(items: [], loading: false);
     });
 
     
 
-    await dataRepo.getClient<ClientModel>(
-      parser: (json) => ClientModel.fromJson(json),
-      body: {
-        "grant_type": "client_credentials",
-        "client_id":"9e5185cb-7814-4a23-81f7-a30d67806967",
-        "client_secret": "FE0Sy3yDY3J4mOZMszHqyYPqSKGDLQvuioIPwvxC",
-        "scope": ""
-      },
-      onSuccess: (p0) {
-        state = state.copyWith(loading: false);
-      },
-      onError: (p0){
-        print("fail");
-      }
-    );
+    // await dataRepo.getClient<ClientModel>(
+    //   parser: (json) => ClientModel.fromJson(json),
+    //   body: {
+    //     "grant_type": "client_credentials",
+    //     "client_id":"9e5185cb-7814-4a23-81f7-a30d67806967",
+    //     "client_secret": "FE0Sy3yDY3J4mOZMszHqyYPqSKGDLQvuioIPwvxC",
+    //     "scope": ""
+    //   },
+    //   onSuccess: (p0) {
+    //     state = state.copyWith(loading: false);
+    //   },
+    //   onError: (p0){
+    //     print("fail");
+    //   }
+    // );
 
     // await dataRepo.getUserlist<List<UserList>>(
     //   parser: (json){
@@ -88,7 +88,20 @@ class ListviewController extends _$ListviewController {
     //   }
     // );
 
-    await dataRepo.getUser<UserList>(
+    // await dataRepo.getUser<UserList>(
+    //   parser: (json){
+    //     return UserList.fromJson(json);
+    //   },
+    //   onSuccess: (p0) {
+    //     state = state.copyWith(items: [p0.data!], loading: false);
+    //   },
+    //   onError: (p0){
+    //     print("fail");
+    //   }
+    // );
+
+
+    await dataRepo.failRequest<UserList>(
       parser: (json){
         return UserList.fromJson(json);
       },
