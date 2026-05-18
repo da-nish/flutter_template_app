@@ -1,0 +1,6 @@
+{
+  "appTitle": "ನನ್ನ ಆಪ್",
+  "welcome": "ಸ್ವಾಗತ",
+  "helloUser": "ಹಲೋ {name}",
+  "helloUser1": "ಹಲೋ {name} {lastName}"
+}

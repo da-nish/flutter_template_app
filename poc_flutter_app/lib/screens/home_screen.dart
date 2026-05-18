@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:poc_flutter_app/application.dart';
+import 'package:poc_flutter_app/l10n/app_localizations.dart';
 import 'package:poc_flutter_app/screens/profile_screen.dart';
 
 import '../routes/app_router.dart';
@@ -9,24 +12,68 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(title: const Text('Home Hub')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Consumer(
+              builder: (context, ref, child) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          child: const Text('English'),
+                          onPressed: () {
+                            ref.read(localeProvider.notifier).state =
+                            const Locale('en');
+                          },
+                        ),
+                        TextButton(
+                          child: const Text('Hindi'),
+                          onPressed: () {
+                            ref.read(localeProvider.notifier).state =
+                            const Locale('hi');
+                          },
+                        ),
+                        TextButton(
+                          child: const Text('kannada'),
+                          onPressed: () {
+                            ref.read(localeProvider.notifier).state =
+                            const Locale('kn');
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(AppLocalizations.of(context)!.helloUser("Danish"), style: TextStyle(fontSize: 20),),
+                      ],
+                    ),
+                    SizedBox(height: 20,)
+                  ],
+                );
+              },
+            ),
             ElevatedButton(
               onPressed: () => appRouter.push(AppRoutes.login),
               // goRouter.push(AppRoutes.login),
               child: const Text('Login Screen'),
             ),
             ElevatedButton(
-              onPressed: () => appRouter.push(AppRoutes.login1, extra: "111112"),
+              onPressed: () =>
+                  appRouter.push(AppRoutes.login1, extra: "111112"),
               // goRouter.push(AppRoutes.login),
               child: const Text('Login Screen 1'),
             ),
             const SizedBox(height: 16),
-             ElevatedButton(
+            ElevatedButton(
               onPressed: () => appRouter.push(AppRoutes.listview),
               // goRouter.push(AppRoutes.login),
               child: const Text('Listview'),
@@ -34,9 +81,12 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                final result = await context.push(AppRoutes.profile, extra: User(name: 'VVVV', age: '25'));
+                final result = await context.push(
+                  AppRoutes.profile,
+                  extra: User(name: 'VVVV', age: '25'),
+                );
                 print("result: $result");
-                },
+              },
               child: const Text('Profile Screen'),
             ),
             const SizedBox(height: 16),

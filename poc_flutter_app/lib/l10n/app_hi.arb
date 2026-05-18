@@ -1,0 +1,6 @@
+{
+  "appTitle": "मेरा ऐप",
+  "welcome": "स्वागत है",
+  "helloUser": "नमस्ते {name}",
+  "helloUser1": "नमस्ते {name} {lastName}"
+}

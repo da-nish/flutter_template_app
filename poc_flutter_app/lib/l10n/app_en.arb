@@ -1,0 +1,6 @@
+{
+  "appTitle": "My App",
+  "welcome": "Welcome",
+  "helloUser": "Hello {name}",
+  "helloUser1": "Hello {name} {lastName}"
+}
