@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:firebase_app_installations/firebase_app_installations.dart';
+// import 'package:firebase_app_installations/firebase_app_installations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class DeviceUtil {
@@ -15,16 +15,16 @@ class DeviceUtil {
   static late String _buildNumber;
   static late String _deviceId;
   static late String _packageName;
-  static late String _fid;
+  // static late String _fid;
 
   factory DeviceUtil.getInstance() {
     return _instance;
   }
 
   DeviceUtil._internal() {
-    FirebaseInstallations.instance.getId().then((value) {
-      _fid = value;
-    });
+    // FirebaseInstallations.instance.getId().then((value) {
+    //   _fid = value;
+    // });
 
     if (Platform.isAndroid) {
       DeviceInfoPlugin().androidInfo.then((androidInfo) {
@@ -86,5 +86,5 @@ class DeviceUtil {
 
   String get packageName => _packageName;
 
-  String get fid => _fid;
+  // String get fid => _fid;
 }
