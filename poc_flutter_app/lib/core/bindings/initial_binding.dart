@@ -2,6 +2,7 @@
 
 import 'package:poc_flutter_app/core/base/dependency_setup.dart';
 import 'package:poc_flutter_app/core/env/environment_data.dart';
+import 'package:poc_flutter_app/core/network/interceptor/app_param_interceptor.dart';
 import 'package:ps_api/core/api_client.dart';
 
 class InitialBinding {
@@ -14,8 +15,9 @@ class InitialBinding {
     PSAPIClient.instance.setConfig(
       baseUrl: baseURL,
       displayLog: true,
-      // clientIdentifier: "DEMO_APP",
-      publicInterceptors: [],
+      publicInterceptors: [
+        AppParamInterceptor(appIdentifier: "DEMO_APP"),
+      ],
       secureInterceptors: [],
     );
   }

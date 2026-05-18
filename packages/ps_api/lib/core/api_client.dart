@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:ps_api/core/interceptors/retry_interceptor.dart';
 import 'package:ps_api/core/utils/custom_logger.dart';
 
-enum PSRequestType { public, secure}
+enum PSRequestType { public, secure }
 
 class PSAPIClient {
   PSAPIClient._();
@@ -15,7 +16,7 @@ class PSAPIClient {
   Dio get secureClientInstance => _secureClientInstance;
 
   Dio _dummyClientInstance = Dio();
-  Dio get dummyClientInstance => _dummyClientInstance;  
+  Dio get dummyClientInstance => _dummyClientInstance;
 
   final _prettyDioLogger = PSCustomAPILogger(
     requestHeader: true,
@@ -41,13 +42,30 @@ class PSAPIClient {
     required List<Interceptor> publicInterceptors,
   }) {
     if (errorHandler != null) {}
-    _publicClientInstance = _setClient(clientType: PSRequestType.public, baseUrl: baseUrl, displayLog: displayLog, interceptors: publicInterceptors);
-    _secureClientInstance = _setClient(clientType: PSRequestType.secure, baseUrl: baseUrl, displayLog: displayLog,interceptors: secureInterceptors);
+    _publicClientInstance = _setClient(
+      clientType: PSRequestType.public,
+      baseUrl: baseUrl,
+      displayLog: displayLog,
+      interceptors: publicInterceptors,
+    );
+    _secureClientInstance = _setClient(
+      clientType: PSRequestType.secure,
+      baseUrl: baseUrl,
+      displayLog: displayLog,
+      interceptors: secureInterceptors,
+    );
     _dummyClientInstance = setDummyClient();
   }
 
-  Dio _setClient({required PSRequestType clientType, required String baseUrl, required bool displayLog, required List<Interceptor> interceptors}) {
-    final Dio client = clientType==PSRequestType.public ? _publicClientInstance :_secureClientInstance;
+  Dio _setClient({
+    required PSRequestType clientType,
+    required String baseUrl,
+    required bool displayLog,
+    required List<Interceptor> interceptors,
+  }) {
+    final Dio client = clientType == PSRequestType.public
+        ? _publicClientInstance
+        : _secureClientInstance;
     client.options = _options.copyWith(baseUrl: baseUrl);
 
     client.interceptors.clear();
@@ -55,6 +73,9 @@ class PSAPIClient {
     for (Interceptor element in interceptors) {
       client.interceptors.add(element);
     }
+    client.interceptors.add(
+      DioRetryInterceptor.getRetryInterceptor(dio: client, retries: 3)
+    );
 
     if (displayLog) {
       client.interceptors.add(_prettyDioLogger);
@@ -74,9 +95,10 @@ class PSAPIClient {
     // print(_httpTokenInstance.hashCode);
   }
 
-
-  Dio _getClient(PSRequestType clientType){
-    final client = clientType==PSRequestType.public ? _publicClientInstance :_secureClientInstance;
+  Dio _getClient(PSRequestType clientType) {
+    final client = clientType == PSRequestType.public
+        ? _publicClientInstance
+        : _secureClientInstance;
     return client;
   }
 
