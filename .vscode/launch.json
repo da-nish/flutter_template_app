@@ -9,12 +9,12 @@
             "request": "launch",
             "type": "dart",
             "program": "poc_flutter_app/lib/main_dev.dart",
-            // "args": [
-            //     "--flavor",
-            //     "dev",
+            "args": [
+                "--flavor",
+                "prod",
             //     "--dart-define",
             //     "ignore_device_check=true"
-            // ]
+            ]
         },
     ]
 }
