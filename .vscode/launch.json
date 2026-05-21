@@ -11,7 +11,7 @@
             "program": "poc_flutter_app/lib/main_dev.dart",
             "args": [
                 "--flavor",
-                "prod",
+                "dev",
             //     "--dart-define",
             //     "ignore_device_check=true"
             ]
