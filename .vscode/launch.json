@@ -16,5 +16,16 @@
             //     "ignore_device_check=true"
             ]
         },
+        {
+            "name": "Production",
+            "request": "launch",
+            "type": "dart",
+            "program": "poc_flutter_app/lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod",
+            ]
+        },
+        
     ]
 }
