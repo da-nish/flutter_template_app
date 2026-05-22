@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:poc_flutter_app/screens/listview_screen/view/listview_screen.dart';
-import 'package:poc_flutter_app/screens/login_screen/login_screen.dart';
-import 'package:poc_flutter_app/screens/profile_sub_route/profile_admin_screen.dart';
-import 'package:poc_flutter_app/screens/profile_sub_route/profile_company_screen.dart';
-import 'package:poc_flutter_app/screens/profile_sub_route/profile_user_screen.dart';
+import 'package:poc_flutter_app/app/screens/listview_screen/view/listview_screen.dart';
+import 'package:poc_flutter_app/app/screens/login_screen/login_screen.dart';
+import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_admin_screen.dart';
+import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_company_screen.dart';
+import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_user_screen.dart';
 
 import '../screens/dashboard_screen.dart';
 import '../screens/home_screen.dart';

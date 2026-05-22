@@ -1,8 +1,9 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum EnvironmentType { development, staging, production }
 
 class Environment {
   final String baseURL;
-  final String loginURL;
   final bool displayLog;
   final bool crashReport;
   final EnvironmentType environmentType;
@@ -12,25 +13,25 @@ class Environment {
     required this.displayLog,
     required this.crashReport,
     required this.environmentType,
-    required this.loginURL,
   }) {
     toString();
   }
 
   static Environment initialize(EnvironmentType type) {
-  
+    String baseURL = dotenv.get("API_BASE_URL", fallback: 'API_URL/');
+    String displayLog = dotenv.get("ENABLE_LOGS", fallback: 'false');
+    String crashReport = dotenv.get("REPORT_CRASH", fallback: 'false');
 
     return Environment._internal(
       baseURL:  "https://jsonplaceholder.typicode.com", //"https://mocki.io",
-      displayLog: _toBoolean("true"),
-      crashReport: _toBoolean("false"),
+      displayLog: _toBoolean(displayLog),
+      crashReport: _toBoolean(crashReport),
       environmentType: type,
-      loginURL: "loginURL",
     );
   }
 
   static bool _toBoolean(String value) {
-    return value == "true";
+    return value.toLowerCase() == "true";
   }
 
   @override
@@ -38,7 +39,6 @@ class Environment {
     // ignore: unused_local_variable
     Map<String, dynamic> map = {
       "BaseURL": baseURL,
-      "LoginURL": loginURL,
       "DisplayLog": displayLog,
       "CrashReport": crashReport,
       "EnvironmentType": environmentType,

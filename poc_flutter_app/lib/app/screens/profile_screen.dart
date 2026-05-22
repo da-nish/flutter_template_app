@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:poc_flutter_app/routes/app_router.dart';
+import 'package:poc_flutter_app/app/routes/app_router.dart';
 
 class User{
   final String name;

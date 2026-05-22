@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:poc_flutter_app/application.dart';
-import 'package:poc_flutter_app/core/base/dependency_setup.dart';
-import 'package:poc_flutter_app/core/env/environment_data.dart';
+import 'package:poc_flutter_app/app/application.dart';
+import 'package:poc_flutter_app/app/core/base/dependency_setup.dart';
+import 'package:poc_flutter_app/app/screens/profile_screen.dart';
+import 'package:poc_flutter_app/env/environment_data.dart';
 import 'package:poc_flutter_app/l10n/app_localizations.dart';
-import 'package:poc_flutter_app/screens/profile_screen.dart';
 
 import '../routes/app_router.dart';
 

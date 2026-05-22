@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poc_flutter_app/screens/listview_screen/controller/listview_controller.dart';
+import 'package:poc_flutter_app/app/screens/listview_screen/controller/listview_controller.dart';
 
 class ListviewWidget extends ConsumerWidget {
 

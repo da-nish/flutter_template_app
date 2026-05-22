@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:poc_flutter_app/screens/listview_screen/widget/listview_widget.dart';
+import 'package:poc_flutter_app/app/screens/listview_screen/widget/listview_widget.dart';
 
 class ListViewScreen extends StatelessWidget {
   const ListViewScreen({super.key});

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:poc_flutter_app/core/network/model/user_list_model.dart';
-import 'package:poc_flutter_app/screens/listview_screen/repository/listview_repository.dart';
+import 'package:poc_flutter_app/app/core/network/model/user_list_model.dart';
+import 'package:poc_flutter_app/app/screens/listview_screen/repository/listview_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'listview_controller.g.dart';

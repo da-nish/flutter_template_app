@@ -1,8 +1,8 @@
 
 
-import 'package:poc_flutter_app/core/base/dependency_setup.dart';
-import 'package:poc_flutter_app/core/env/environment_data.dart';
-import 'package:poc_flutter_app/core/network/interceptor/app_param_interceptor.dart';
+import 'package:poc_flutter_app/app/core/base/dependency_setup.dart';
+import 'package:poc_flutter_app/app/core/network/interceptor/app_param_interceptor.dart';
+import 'package:poc_flutter_app/env/environment_data.dart';
 import 'package:ps_api/core/api_client.dart';
 
 class InitialBinding {

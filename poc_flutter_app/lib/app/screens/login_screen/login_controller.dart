@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:poc_flutter_app/screens/login_screen/login_state.dart';
+import 'package:poc_flutter_app/app/screens/login_screen/login_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // import 'package:http/http.dart' as http;

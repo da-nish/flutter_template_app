@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:poc_flutter_app/core/connection/internet_controller.dart';
+import 'package:poc_flutter_app/app/core/connection/internet_controller.dart';
 
 class GlobalInternetListener extends ConsumerWidget {
   final Widget child;

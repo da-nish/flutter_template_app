@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import 'package:poc_flutter_app/core/connection/internet_check.dart';
+import 'package:poc_flutter_app/app/core/connection/internet_check.dart';
+import 'package:poc_flutter_app/app/routes/app_router.dart';
 import 'package:poc_flutter_app/l10n/app_localizations.dart';
-import 'package:poc_flutter_app/routes/app_router.dart';
 
 
 final localeProvider =
