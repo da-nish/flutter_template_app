@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ps_ui/theme/theme.dart';
 import 'package:ps_ui/widget/text_field/app_text_field_style.dart';
+
 export 'app_text_field_style.dart';
 
 /// *  textInputType - The type of information for which to optimize the text input control.
@@ -80,7 +81,7 @@ class PSTextFormField extends StatefulWidget {
       this.inputFormatters});
 
   @override
-  _PSTextFormFieldState createState() => _PSTextFormFieldState();
+  State<PSTextFormField> createState() => _PSTextFormFieldState();
 }
 
 class _PSTextFormFieldState extends State<PSTextFormField> {

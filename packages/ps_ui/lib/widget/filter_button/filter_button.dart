@@ -1,9 +1,9 @@
+import 'dart:io' as os;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ps_ui/constant/app_assets.dart';
 import 'package:ps_ui/extension/color.dart';
-import 'dart:io' as os;
-
 import 'package:ps_ui/theme/app_colors.dart';
 import 'package:ps_ui/theme/app_dimens.dart';
 import 'package:ps_ui/theme/app_text_style.dart';
@@ -35,7 +35,7 @@ class PSFilterButton extends StatelessWidget {
                 BoxShadow(
                     offset: const Offset(0, 4),
                     blurRadius: 4,
-                    color: PSColors.primaryColor.withOpacity(.15))
+                    color: PSColors.primaryColor.withValues(alpha: .15))
               ]),
           child: InkWell(
             onTap: () {

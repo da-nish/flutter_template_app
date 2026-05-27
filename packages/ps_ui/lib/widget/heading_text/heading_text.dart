@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ps_ui/extension/color.dart';
 import 'package:ps_ui/theme/theme.dart';
 
 class PSHeadingText extends StatelessWidget {
@@ -56,7 +57,7 @@ class PSHeadingText extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SvgPicture.asset(
                 image,
-                color: PSColors.primaryColor,
+                colorFilter: PSColors.primaryColor.toColorFilter,
               )
               // Image.asset(
               //   image,

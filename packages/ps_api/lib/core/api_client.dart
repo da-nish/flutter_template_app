@@ -37,9 +37,9 @@ class PSAPIClient {
   void setConfig({
     required String baseUrl,
     required bool displayLog,
-    Function(String)? errorHandler,
     required List<Interceptor> secureInterceptors,
     required List<Interceptor> publicInterceptors,
+    Function(String)? errorHandler,
   }) {
     if (errorHandler != null) {}
     _publicClientInstance = _setClient(
@@ -109,7 +109,7 @@ class PSAPIClient {
   }
 
   Dio setDummyClient() {
-    PSCustomAPILogger dummyLogger = PSCustomAPILogger(
+    final PSCustomAPILogger dummyLogger = PSCustomAPILogger(
       requestHeader: true,
       requestBody: false,
       responseBody: false, //kDebugMode,

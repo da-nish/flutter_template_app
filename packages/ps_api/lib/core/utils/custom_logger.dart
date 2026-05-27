@@ -1,9 +1,20 @@
+import 'dart:developer' as developer;
 import 'dart:math' as math;
 
 import 'package:dio/dio.dart';
-import 'dart:developer' as developer;
 
 class PSCustomAPILogger extends Interceptor {
+
+  PSCustomAPILogger(
+      {this.request = true,
+      this.requestHeader = true,
+      this.requestBody = true,
+      this.responseHeader = true,
+      this.responseBody = true,
+      this.error = true,
+      this.maxWidth = 120,
+      this.compact = true,
+      this.logPrint = print});
   /// Print request [Options]
   final bool request;
 
@@ -38,17 +49,6 @@ class PSCustomAPILogger extends Interceptor {
   /// In flutter, you'd better use debugPrint.
   /// you can also write log in a file.
   void Function(Object object) logPrint;
-
-  PSCustomAPILogger(
-      {this.request = true,
-      this.requestHeader = true,
-      this.requestBody = true,
-      this.responseHeader = true,
-      this.responseBody = true,
-      this.error = true,
-      this.maxWidth = 120,
-      this.compact = true,
-      this.logPrint = print});
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {

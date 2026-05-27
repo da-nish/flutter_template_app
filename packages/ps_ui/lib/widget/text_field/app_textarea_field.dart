@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ps_ui/theme/theme.dart';
+
 export 'app_text_field_style.dart';
 
 /// *  textInputType - The type of information for which to optimize the text input control.
@@ -48,7 +49,7 @@ class PSTextAreaField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   const PSTextAreaField(
-      {Key? key,
+      {super.key,
       required this.hintText,
       this.textInputType,
       this.textAlign = TextAlign.start,
@@ -78,11 +79,10 @@ class PSTextAreaField extends StatefulWidget {
       this.contentPadding,
       this.isEnabled = true,
       this.keepBottomSpace = false,
-      this.inputFormatters})
-      : super(key: key);
+      this.inputFormatters});
 
   @override
-  _PSTextAreaFieldState createState() => _PSTextAreaFieldState();
+  State<PSTextAreaField> createState() => _PSTextAreaFieldState();
 }
 
 class _PSTextAreaFieldState extends State<PSTextAreaField> {

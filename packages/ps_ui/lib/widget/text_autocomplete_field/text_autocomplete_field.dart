@@ -5,6 +5,7 @@ import 'package:ps_ui/theme/app_colors.dart';
 import 'package:ps_ui/theme/app_dimens.dart';
 import 'package:ps_ui/theme/app_text_style.dart';
 import 'package:ps_ui/widget/text_autocomplete_field/text_autocomplete_field_style.dart';
+
 export 'text_autocomplete_field_style.dart';
 
 /// *  textInputType - The type of information for which to optimize the text input control.
@@ -59,7 +60,7 @@ class PSTextAutoCompleteField<T> extends StatefulWidget {
   final PSTextAutoCompleteFieldStyle style;
 
   const PSTextAutoCompleteField(
-      {Key? key,
+      {super.key,
       required this.hintText,
       this.textInputType,
       this.textAlign = TextAlign.start,
@@ -93,15 +94,14 @@ class PSTextAutoCompleteField<T> extends StatefulWidget {
       this.contentPadding,
       this.isEnabled = true,
       this.keepBottomSpace = false,
-      this.inputFormatters})
-      : super(key: key);
+      this.inputFormatters});
 
   @override
-  _PSTextAutoCompleteFieldState<T> createState() =>
-      _PSTextAutoCompleteFieldState<T>();
+  PSTextAutoCompleteFieldState<T> createState() =>
+      PSTextAutoCompleteFieldState<T>();
 }
 
-class _PSTextAutoCompleteFieldState<T>
+class PSTextAutoCompleteFieldState<T>
     extends State<PSTextAutoCompleteField<T>> {
   double bottomPaddingToError = 12;
   final FocusNode _focus = FocusNode();

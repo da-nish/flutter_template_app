@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
 
 
     Environment env = getIt<Environment>();
-    print("=====> $env");
+    debugPrint("=====> $env");
     
     return Scaffold(
       appBar: AppBar(title: const Text('Home Hub')),
@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                   AppRoutes.profile,
                   extra: User(name: 'VVVV', age: '25'),
                 );
-                print("result: $result");
+                debugPrint("result: $result");
               },
               child: const Text('Profile Screen'),
             ),

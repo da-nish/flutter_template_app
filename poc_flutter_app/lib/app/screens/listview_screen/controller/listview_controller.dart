@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
 import 'package:poc_flutter_app/app/core/network/model/user_list_model.dart';
 import 'package:poc_flutter_app/app/screens/listview_screen/repository/listview_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -38,11 +39,11 @@ class ListViewState {
 @riverpod
 class ListviewController extends _$ListviewController {
 
-  RepositoryI dataRepo = ListviewRepositoryI();
+  final RepositoryI dataRepo = ListviewRepositoryI();
 
   @override
   ListViewState build() {
-    print("calling. 0");
+    debugPrint("calling. 0");
     Future.microtask(() => loadItems());
 
     return ListViewState.initial();
@@ -50,7 +51,7 @@ class ListviewController extends _$ListviewController {
 
 
   Future<void> loadItems() async{
-    print("====> loading items");
+    debugPrint("====> loading items");
 
     // if(state.loading) return;
     state = state.copyWith(loading: true);
@@ -109,7 +110,7 @@ class ListviewController extends _$ListviewController {
         state = state.copyWith(items: [p0.data!], loading: false);
       },
       onError: (p0){
-        print("fail");
+        debugPrint("fail");
       }
     );
   }

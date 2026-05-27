@@ -10,17 +10,16 @@ include: package:flutter_lints/flutter.yaml
 #     missing_return: error
 #     todo: ignore
 
-# linter:
-#   rules:
-#     - always_declare_return_types
-#     - always_put_required_named_parameters_first
-#     - avoid_dynamic_calls
-#     - avoid_void_async
-#     - camel_case_types
-#     - library_private_types_in_public_api
-#     - prefer_const_constructors
-#     - prefer_final_fields
-#     - prefer_final_locals
-#     - sort_constructors_first
-#     - unawaited_futures
-#     - unnecessary_await_in_return
+linter:
+  rules:
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - avoid_dynamic_calls
+    - avoid_void_async
+    - camel_case_types
+    - prefer_const_constructors
+    - prefer_final_fields
+    - prefer_final_locals
+    - sort_constructors_first
+    - unawaited_futures
+    - unnecessary_await_in_return

@@ -16,7 +16,7 @@ mixin PSCommonStyle {
       BoxShadow(
           offset: const Offset(0, 4),
           blurRadius: 8,
-          color: PSColors.black2.withOpacity(.12)),
+          color: PSColors.black2.withValues(alpha: .12)),
     ],
   );
 
@@ -31,7 +31,7 @@ mixin PSCommonStyle {
       BoxShadow(
           offset: const Offset(0, 4),
           blurRadius: PSDimens.grid8,
-          color: PSColors.boxShadowColor.withOpacity(.15)),
+          color: PSColors.boxShadowColor.withValues(alpha: .15)),
     ],
   );
 

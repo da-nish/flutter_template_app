@@ -17,7 +17,7 @@ class PSCommonPopupNotifier extends StatelessWidget {
       case PSPopupType.success:
         return PSAssets.gifRightCircle;
       case PSPopupType.fail:
-        return PSAssets.gifRightCircle; // TODO: add fail gif animation
+        return PSAssets.gifRightCircle;
       default:
         return "";
     }

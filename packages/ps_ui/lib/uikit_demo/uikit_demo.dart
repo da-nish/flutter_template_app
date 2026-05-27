@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ps_ui/constant/app_assets.dart';
-import 'package:ps_ui/widget/alert_container/alert_container.dart';
-import '../theme/theme.dart';
+import 'package:ps_ui/extension/color.dart';
 import 'package:ps_ui/model/country.dart';
+import 'package:ps_ui/widget/alert_container/alert_container.dart';
 import 'package:ps_ui/widget/app_bar/default_appbar.dart';
 import 'package:ps_ui/widget/app_container/app_container.dart';
 import 'package:ps_ui/widget/app_table_view/app_table_view.dart';
@@ -29,6 +29,8 @@ import 'package:ps_ui/widget/text_field/app_textarea_field.dart';
 import 'package:ps_ui/widget/text_label/text_label.dart';
 import 'package:ps_ui/widget/toast/toast.dart';
 import 'package:ps_ui/widget/view_more_button/view_more_button.dart';
+
+import '../theme/theme.dart';
 
 class PSUIKitDemoScreen extends StatelessWidget {
   const PSUIKitDemoScreen({super.key});
@@ -289,7 +291,7 @@ class PSUIKitDemoScreen extends StatelessWidget {
                     child: SvgPicture.asset(
                       PSAssets.icEye,
                       height: 8,
-                      color: PSColors.primaryColor,
+                      colorFilter: PSColors.primaryColor.toColorFilter,
                       // opticalSize: 1,
                     ),
                   ),

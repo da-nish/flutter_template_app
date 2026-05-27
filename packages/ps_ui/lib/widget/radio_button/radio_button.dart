@@ -33,7 +33,7 @@ class PSRadioButton extends StatelessWidget {
                 height: size,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: isSelected ? color : color.withOpacity(.3),
+                  color: isSelected ? color : color.withValues(alpha: 0.3),
                 ),
               ),
               Container(
@@ -49,7 +49,7 @@ class PSRadioButton extends StatelessWidget {
                 height: 9,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: isSelected ? color : color.withOpacity(.3),
+                  color: isSelected ? color : color.withValues(alpha: .3),
                 ),
               ),
             ],

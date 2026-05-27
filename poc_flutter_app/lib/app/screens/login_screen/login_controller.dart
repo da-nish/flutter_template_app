@@ -40,7 +40,7 @@ class LoginController extends _$LoginController {
   void updateEmail(String email) {
     emailController.text = email;
     state = state.copyWith(email: email);
-    print("updating email: $email");
+    debugPrint("updating email: $email");
   }
 
   void updatePassword(String password) {
@@ -57,15 +57,15 @@ class LoginController extends _$LoginController {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+        debugPrint(data);
 
-        print('Login Success');
-        print('Token: ${data['token']}');
+        // print('Login Success');
+        // print('Token: ${data['token']}');
       } else {
-        print('Login Failed');
-        print(response.body);
+        debugPrint(response.body);
       }
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     } finally {
       state = state.copyWith(isLoading: false);
     }

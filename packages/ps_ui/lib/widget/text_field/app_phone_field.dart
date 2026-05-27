@@ -1,9 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ps_ui/model/country.dart';
 import 'package:ps_ui/theme/theme.dart';
 import 'package:ps_ui/widget/text_field/app_text_field_style.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 export 'app_text_field_style.dart';
 
@@ -54,7 +54,7 @@ class PSPhoneFormField extends StatefulWidget {
   final Widget arrowWidget;
 
   const PSPhoneFormField(
-      {Key? key,
+      {super.key,
       required this.hintText,
       this.textInputType,
       this.textAlign = TextAlign.start,
@@ -86,8 +86,7 @@ class PSPhoneFormField extends StatefulWidget {
       this.isEnabled = true,
       this.keepBottomSpace = false,
       this.arrowWidget = const SizedBox.shrink(),
-      this.inputFormatters})
-      : super(key: key);
+      this.inputFormatters});
 
   @override
   PSPhoneFormFieldState createState() => PSPhoneFormFieldState();

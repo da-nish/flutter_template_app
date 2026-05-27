@@ -26,7 +26,7 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildCard(String title, String value, Color color) {
     return Card(
-      color: color.withOpacity(0.2),
+      color: color.withValues(alpha: 0.2),
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Column(

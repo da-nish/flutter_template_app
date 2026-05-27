@@ -4,24 +4,22 @@ import 'package:ps_api/core/models/response_wrapper_model.dart';
 import 'package:ps_api/core/network/base_api_service_interface.dart';
 
 class PSBaseApiService extends BaseApiServiceInterface {
-  static final PSBaseApiService _instance = PSBaseApiService._internal();
 
   factory PSBaseApiService.getInstance() {
     return _instance;
   }
 
   PSBaseApiService._internal();
+  static final PSBaseApiService _instance = PSBaseApiService._internal();
 
   @override
   Future<ApiResponseWrapper<T>> postRequest<T>({
   required String url,
-  Map<String, dynamic>? body,
-  required Dio dio,
+  required Dio dio, required T Function(dynamic) parser, Map<String, dynamic>? body,
   Options? options,
   bool urlOverride = false,
   CancelToken? cancelToken,
   bool shouldReAttempt = false,
-  required T Function(dynamic) parser,
   bool overrideModel = false,
 }) async {
   try {
@@ -65,7 +63,7 @@ class PSBaseApiService extends BaseApiServiceInterface {
     Response response;
     try {
       if (responseTypesAsBytes) {
-        Options ops = options ?? Options();
+        final Options ops = options ?? Options();
         ops.responseType = ResponseType.bytes;
         response = await dio.get(url, queryParameters: qParams, options: ops);
       } else {
@@ -172,7 +170,7 @@ class PSBaseApiService extends BaseApiServiceInterface {
     dynamic responseData,
   }) async {
     try {
-      Response response = Response(
+      final Response response = Response(
         data: responseData,
         requestOptions: RequestOptions(),
       );

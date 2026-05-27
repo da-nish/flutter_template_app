@@ -21,12 +21,12 @@ class PSThreeDotLoader extends StatelessWidget {
           _AnimatedDot(
             width: 40,
             delay: const Duration(milliseconds: 800),
-            color: color.withOpacity(.5),
+            color: color.withValues(alpha: .5),
           ),
           _AnimatedDot(
             width: 50,
             delay: const Duration(milliseconds: 500),
-            color: color.withOpacity(.3),
+            color: color.withValues(alpha: .3),
           )
         ],
       ),

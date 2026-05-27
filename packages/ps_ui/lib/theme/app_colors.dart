@@ -26,7 +26,7 @@ mixin PSColors {
   static const Color liteBlueBackground = Color(0xfff6f9ff); //check color code
   static const Color liteBlueBackground1 = Color(0xFFA1C3FF);
   // ignore: use_full_hex_values_for_flutter_colors
-  static Color liteBlueBackground2 = const Color(0xfff4a77c3).withOpacity(.26);
+  static Color liteBlueBackground2 = const Color(0xfff4a77c3).withValues(alpha: .26);
   static const Color liteBlueBackground3 = Color(0xffF6F9FF);
   static const shadowColor = Color.fromRGBO(74, 119, 195, 0.15);
 

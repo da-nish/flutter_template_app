@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ps_ui/constant/app_assets.dart';
+import 'package:ps_ui/extension/color.dart';
 import 'package:ps_ui/theme/app_colors.dart';
 
 class PSFilterOptionButton extends StatelessWidget {
@@ -82,7 +83,7 @@ class PSFilterOptionButton extends StatelessWidget {
             if (showArrowIcon) ...[
               SvgPicture.asset(
                 PSAssets.icArrowDown,
-                color: getColor(isSelected),
+                colorFilter: getColor(isSelected).toColorFilter,
                 height: 16,
                 width: 20,
                 // size: 15,

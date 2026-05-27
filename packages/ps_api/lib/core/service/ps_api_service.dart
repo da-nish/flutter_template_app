@@ -1,4 +1,4 @@
-library ps_api;
+library;
 
 import 'dart:async';
 

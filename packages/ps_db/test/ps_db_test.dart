@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ps_db/core/shared_preference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,9 +103,9 @@ void main() {
   test('SaveMap ', () async {
     final Map dd = {"a": "b", "c": 1};
     await prefs.saveMap('key11', dd);
-    final s = await prefs.getMap('key11');
+    final s = prefs.getMap('key11');
 
-    print("res:1: ${s}");
+    debugPrint("res:1: $s");
   });
 
   test('Save and retrieve encrypted map', () async {

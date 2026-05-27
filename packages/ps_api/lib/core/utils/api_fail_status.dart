@@ -18,7 +18,7 @@ mixin ApiFailStatus {
   ApiErrorModel onHttpFailure(ApiResponseWrapper? response) {
     try {
       if (response != null && response.statusCode != null) {
-        int statusCode = response.statusCode!;
+        final int statusCode = response.statusCode!;
         switch (statusCode) {
           case httpOk:
           case badRequest:

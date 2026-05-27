@@ -1,13 +1,8 @@
 
+// ignore_for_file: avoid_dynamic_calls
+
 enum ApiStatus { empty, loading, success, networkError, serverError }
 class ApiResponseWrapper<T> {
-  String? responseStatus;
-  String? responseCode;
-  int? responseHttpCode;
-  List<String> message = [];
-  T? data;
-  int? statusCode;
-  ApiStatus status;
   ApiResponseWrapper.from({
     required this.message,
     required this.data,
@@ -20,9 +15,8 @@ class ApiResponseWrapper<T> {
     : status = ApiStatus.networkError;
 
   ApiResponseWrapper.serverError({
-    this.statusCode,
+    required this.message, this.statusCode,
     this.data,
-    required this.message,
     this.responseCode,
     this.responseHttpCode,
     this.responseStatus,
@@ -56,6 +50,13 @@ class ApiResponseWrapper<T> {
       data: parsedResponse,
     );
   }
+  String? responseStatus;
+  String? responseCode;
+  int? responseHttpCode;
+  List<String> message = [];
+  T? data;
+  int? statusCode;
+  ApiStatus status;
 
   bool get isSuccess => status == ApiStatus.success;
 }

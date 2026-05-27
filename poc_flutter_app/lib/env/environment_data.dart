@@ -23,7 +23,7 @@ class Environment {
     String crashReport = dotenv.get("REPORT_CRASH", fallback: 'false');
 
     return Environment._internal(
-      baseURL:  "https://jsonplaceholder.typicode.com", //"https://mocki.io",
+      baseURL:  baseURL, //"https://jsonplaceholder.typicode.com", //"https://mocki.io",
       displayLog: _toBoolean(displayLog),
       crashReport: _toBoolean(crashReport),
       environmentType: type,

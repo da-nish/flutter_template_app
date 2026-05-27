@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ps_ui/theme/theme.dart';
 import 'package:ps_ui/widget/icon_button/icon_button.dart';
@@ -15,10 +16,8 @@ class PSPopupDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return isDismissable;
-      },
+    return PopScope(
+      canPop: isDismissable,
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
         child: AlertDialog(

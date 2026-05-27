@@ -1,4 +1,4 @@
-library ps_api;
+library;
 
 export 'core/api_client.dart';
 export 'core/models/export.dart';
