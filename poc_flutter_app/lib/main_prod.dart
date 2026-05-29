@@ -15,5 +15,5 @@ Future<void> main() async {
   }
   Environment env = Environment.initialize(EnvironmentType.production);
   getIt.registerSingleton<Environment>(env);
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(ProviderScope(child: const Application()));
 }

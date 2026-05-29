@@ -19,5 +19,5 @@ Future<void> main() async {
   getIt.registerSingleton<Environment>(env);
   InitialBinding.dependencies();
 
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(ProviderScope(child: const Application()));
 }

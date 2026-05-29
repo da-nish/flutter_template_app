@@ -12,8 +12,8 @@ final localeProvider =
   return const Locale('en');
 });
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
+class Application extends ConsumerWidget {
+  const Application({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
