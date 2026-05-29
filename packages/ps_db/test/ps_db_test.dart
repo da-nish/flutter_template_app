@@ -1,26 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ps_db/core/shared_preference.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() {
   late PSPreferences prefs;
 
   setUp(() async {
     // Setup mock initial values
-    SharedPreferences.setMockInitialValues({});
-    prefs = PSPreferences.instance;
-    await prefs.init();
+    // SharedPreferences.setMockInitialValues({});
+    prefs = PSPreferences();
+    // await prefs.init();
   });
 
   test('Save and retrieve encrypted string', () async {
     const key = 'test_string';
     const value = 'hello_encrypted';
 
-    final saveResult = await prefs.saveString(key, value);
-    expect(saveResult, true);
+    await prefs.saveString(key, value);
 
-    final result = prefs.getString(key);
+    final result = await prefs.getString(key);
     expect(result, value);
   });
 
@@ -28,8 +27,7 @@ void main() {
     const key = 'test_int';
     const value = 1234;
 
-    final saveResult = await prefs.saveInt(key, value);
-    expect(saveResult, true);
+    await prefs.saveInt(key, value);
 
     final result = prefs.getInt(key);
     expect(result, value);
@@ -39,8 +37,7 @@ void main() {
     const key = 'test_bool';
     const value = true;
 
-    final saveResult = await prefs.saveBoolean(key, value);
-    expect(saveResult, true);
+    await prefs.saveBoolean(key, value);
 
     final result = prefs.getBoolean(key);
     expect(result, value);
@@ -74,8 +71,8 @@ void main() {
     const key = 'exist_key';
     await prefs.saveString(key, 'some_value');
 
-    expect(prefs.isExistKey(key), true);
-    expect(prefs.isExistKey('non_exist_key'), false);
+    expect(prefs.containsKey(key), true);
+    expect(prefs.containsKey('non_exist_key'), false);
   });
 
   test('Remove key removes the value', () async {
@@ -95,9 +92,9 @@ void main() {
 
     await prefs.removeAll();
 
-    expect(prefs.isExistKey('key1'), false);
-    expect(prefs.isExistKey('key2'), false);
-    expect(prefs.isExistKey('key3'), false);
+    expect(prefs.containsKey('key1'), false);
+    expect(prefs.containsKey('key2'), false);
+    expect(prefs.containsKey('key3'), false);
   });
 
   test('SaveMap ', () async {
@@ -112,10 +109,9 @@ void main() {
     const key = 'test_map';
     final map = {'name': 'Alice', 'age': 30};
 
-    final saveResult = await prefs.saveMap(key, map);
-    expect(saveResult, true);
+    await prefs.saveMap(key, map);
 
-    final result = prefs.getMap(key);
+    final result = await prefs.getMap(key);
 
     expect(result, isA<Map<String, dynamic>>());
     expect(result['name'], equals('Alice'));

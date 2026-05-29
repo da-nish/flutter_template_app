@@ -105,6 +105,10 @@ class HomeScreen extends StatelessWidget {
               onPressed: () => context.push(AppRoutes.dashboard),
               child: const Text('Dashboard Screen'),
             ),
+            ElevatedButton(
+              onPressed: () => context.push(AppRoutes.dataViewScreen),
+              child: const Text('Data view Screen'),
+            ),
           ],
         ),
       ),

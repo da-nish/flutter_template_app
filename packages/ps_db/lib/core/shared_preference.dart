@@ -2,62 +2,29 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'package:encrypt/encrypt.dart' as encrypt;
+
 import 'package:flutter/foundation.dart' as foundation;
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:ps_db/core/crypto_service.dart';
 
 class PSPreferences {
-  final String tag = "AppPreferences";
+  final _crypto = AESCryptoService();
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
-  PSPreferences._() {
-    final encrypt.Key key = encrypt.Key.fromLength(32);
-    _iv = encrypt.IV.fromLength(16);
-    _encrypted = encrypt.Encrypter(encrypt.AES(key));
+  // -------------------------
+  // STRING
+  // -------------------------
+
+  Future<void> _saveString(String key, String? value) async {
+    await _storage.write(key: key, value: value);// _crypto.encrypt(value ?? ""));
   }
 
-  static PSPreferences instance = PSPreferences._();
+  Future<void> saveString(String key, String value) => _saveString(key, value);
 
-  static SharedPreferences? _sharedPreferences;
-  static late encrypt.Encrypter _encrypted;
-  static late encrypt.IV _iv;
-
-  Future<void> init() async {
-    _sharedPreferences ??= await SharedPreferences.getInstance();
-  }
-
-  static String? _encrypt(String? input) {
-    if ((input ?? "").isNotEmpty) {
-      final encrypt.Encrypted encrypted = _encrypted.encrypt(input!, iv: _iv);
-      return encrypted.base64;
-    }
-    return null;
-  }
-
-  static String? _decrypt(String? input) {
-    if ((input ?? "").isNotEmpty) {
-      return _encrypted.decrypt64(input!, iv: _iv);
-    }
-    return null;
-  }
-
-  Future<bool> _saveString(String key, String? value) async {
-    bool result =
-        await _sharedPreferences?.setString(key, _encrypt(value) ?? "") ??
-            false;
-    // PSCustomLogger.log(
-    //   header: "SharedPreference",
-    //   label: "SET: $key",
-    //   text: value,
-    // );
-    return result;
-  }
-
-  Future<bool> saveString(String key, String value) => _saveString(key, value);
-
-  String? getString(String key, {String? defaultValue = ""}) {
+  Future<String?> getString(String key, {String? defaultValue = ""}) async {
     String? encryptedValue;
     try {
-      encryptedValue = _sharedPreferences?.getString(key);
+      encryptedValue = await _storage.read(key: key);
     } catch (error) {
       foundation.debugPrint("1>> $error");
     }
@@ -65,62 +32,60 @@ class PSPreferences {
       return defaultValue;
     }
     try {
-      String? result = _decrypt(encryptedValue) ?? defaultValue;
-      // PSCustomLogger.log(
-      //     header: "SharedPreference", label: "GET: $key", text: result);
+      String? result = encryptedValue; // _crypto.decrypt(encryptedValue);
       return result;
     } catch (error) {
       foundation.debugPrint("2>> $error");
-      // GoogleCloudLoggingService.instance.writeLog(
-      //   level: LogLevel.error,
-      //   message: "shareed_preference.dart getString() 2: $error",
-      // );
     }
 
     return null;
   }
 
-  Future<bool> saveInt(String key, int value) {
-    return _saveString(key, value.toString());
+  // -------------------------
+  // INT
+  // -------------------------
+
+  Future<void> saveInt(String key, int value) async {
+    await _saveString(key, value.toString());
   }
 
-  int getInt(String key, {int defaultValue = 0}) {
-    final String? str = getString(key, defaultValue: defaultValue.toString());
+  Future<int> getInt(String key, {int defaultValue = 0}) async {
+    final String? str =
+        await getString(key, defaultValue: defaultValue.toString());
     final int? value = int.tryParse(str ?? "");
 
     if (value != null) {
       return value;
     }
-    // PSCustomLogger.log(
-    //   header: "SharedPreference",
-    //   label: "GET: $key",
-    //   text: value?.toString(),
-    // );
 
     return defaultValue;
   }
 
-  Future<bool> saveBoolean(String key, bool value) {
-    return saveInt(key, value ? 1 : 0);
+  // -------------------------
+  // BOOL
+  // -------------------------
+
+  Future<void> saveBoolean(String key, bool value) async {
+    await saveInt(key, value ? 1 : 0);
   }
 
-  bool getBoolean(String key, {bool defaultValue = false}) {
-    bool result = getInt(key, defaultValue: defaultValue ? 1 : 0) == 1;
-    // PSCustomLogger.log(
-    //     header: "SharedPreference",
-    //     label: "GET: $key",
-    //     text: result.toString());
+  Future<bool> getBoolean(String key, {bool defaultValue = false}) async {
+    bool result = await getInt(key, defaultValue: defaultValue ? 1 : 0) == 1;
     return result;
   }
 
-  Future<bool> saveMap(String key, Map<dynamic, dynamic> value) async {
+  // -------------------------
+  // MAP
+  // -------------------------
+
+  Future<void> saveMap(String key, Map<dynamic, dynamic> value) async {
     return await _saveString(key, jsonEncode(value));
   }
 
-  Map<String, dynamic> getMap(String key,
-      {Map<String, dynamic> defaultValue = const {}}) {
+  Future<Map<String, dynamic>> getMap(String key,
+      {Map<String, dynamic> defaultValue = const {}}) async {
     try {
-      final jsonString = getString(key);
+      final jsonString = await getString(key);
       if (jsonString == null || jsonString.isEmpty) return defaultValue;
       final decoded = jsonDecode(jsonString);
       if (decoded is Map<String, dynamic>) {
@@ -132,21 +97,19 @@ class PSPreferences {
     return defaultValue;
   }
 
-  bool isExistKey(String key) {
-    return _sharedPreferences?.containsKey(key) ?? false;
-  }
+  // -------------------------
+  // REMOVE
+  // -------------------------
 
   Future<void> remove(String key) async {
-    // bool result =
-    await _sharedPreferences?.remove(key);
-
-    // PSCustomLogger.log(
-    //     header: "SharedPreference",
-    //     label: "REMOVE: $key",
-    //     text: "Result: ${result.toString()}");
+    await _storage.delete(key: key);
   }
 
   Future<void> removeAll() async {
-    await _sharedPreferences?.clear();
+    await _storage.deleteAll();
+  }
+
+  Future<bool> containsKey(String key) async {
+    return await _storage.containsKey(key: key) ?? false;
   }
 }

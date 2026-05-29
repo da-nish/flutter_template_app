@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:poc_flutter_app/app/screens/data_view/view/data_view_screen.dart';
 import 'package:poc_flutter_app/app/screens/listview_screen/view/listview_screen.dart';
 import 'package:poc_flutter_app/app/screens/login_screen/login_screen.dart';
 import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_admin_screen.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String dashboard = '/dashboard';
+  static const String dataViewScreen='/DataViewScreen';
 
 
 }
@@ -83,6 +85,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.dashboard,
       builder: (context, state) => const DashboardScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.dataViewScreen,
+      builder: (context, state) => const DataViewScreen(),
     ),
   ],
 );
