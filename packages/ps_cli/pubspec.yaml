@@ -1,4 +1,4 @@
-name: my_cli_tool
+name: ps_cli
 description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
@@ -8,8 +8,10 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  args: ^2.5.0
   path: ^1.9.0
+  args: ^2.5.0
+  mason_logger: ^0.2.10
+  recase: ^4.1.0
 
 dev_dependencies:
   lints: ^6.0.0

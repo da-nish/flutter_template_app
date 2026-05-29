@@ -2,39 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:poc_flutter_app/app/core/network/model/user_list_model.dart';
 import 'package:poc_flutter_app/app/screens/listview_screen/repository/listview_repository.dart';
+import 'package:poc_flutter_app/app/screens/listview_screen/state/listview_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'listview_controller.g.dart';
 
-class ListViewState {
-  final bool loading;
-  final List<UserList> items;
-  final bool hasMore;
-
-  ListViewState({required this.loading, required this.items, required this.hasMore});
-
-
-  factory ListViewState.initial(){
-    return ListViewState(
-      loading: false, 
-      items: [], 
-      hasMore: true
-    );
-  }
-
-  ListViewState copyWith({
-    bool? loading,
-    List<UserList>? items,
-    bool? hasMore,
-  }) {
-    return ListViewState(
-      loading: loading ?? this.loading,
-      items: items ?? this.items,
-      hasMore: hasMore ?? this.hasMore,
-    );
-  }
-
-}
 
 @riverpod
 class ListviewController extends _$ListviewController {
