@@ -8,7 +8,6 @@
       "version": "1.0.0",
       "dependencies": [
         "args",
-        "mason_logger",
         "path",
         "recase"
       ],
@@ -57,15 +56,6 @@
       "name": "recase",
       "version": "4.1.0",
       "dependencies": []
-    },
-    {
-      "name": "mason_logger",
-      "version": "0.2.16",
-      "dependencies": [
-        "ffi",
-        "io",
-        "win32"
-      ]
     },
     {
       "name": "args",
@@ -319,18 +309,6 @@
         "watcher",
         "yaml"
       ]
-    },
-    {
-      "name": "win32",
-      "version": "5.15.0",
-      "dependencies": [
-        "ffi"
-      ]
-    },
-    {
-      "name": "ffi",
-      "version": "2.2.0",
-      "dependencies": []
     },
     {
       "name": "string_scanner",
