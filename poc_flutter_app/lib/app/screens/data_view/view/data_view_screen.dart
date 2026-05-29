@@ -7,10 +7,7 @@ class DataViewScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final controller = ref.read(dataviewControllerProvider.notifier);
-
-
     return Scaffold(
       appBar: AppBar(title: const Text('DataView Screen')),
 

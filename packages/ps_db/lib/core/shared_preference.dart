@@ -5,10 +5,9 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:ps_db/core/crypto_service.dart';
 
 class PSPreferences {
-  final _crypto = AESCryptoService();
+  // final _crypto = AESCryptoService();
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   // -------------------------
@@ -110,6 +109,6 @@ class PSPreferences {
   }
 
   Future<bool> containsKey(String key) async {
-    return await _storage.containsKey(key: key) ?? false;
+    return await _storage.containsKey(key: key);
   }
 }

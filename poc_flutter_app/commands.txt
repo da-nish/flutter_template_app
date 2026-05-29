@@ -1,0 +1,5 @@
+
+
+Generate feature 
+    dart run ../packages/ps_cli/bin/ps_cli.dart generate -n NewFeature
+
