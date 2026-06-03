@@ -1,10 +1,6 @@
+const req = false;
 final basicProfileStep1Response = {
-		"screenTitle": "Suitability Check",
-    "continue_button": {
-      "buttonText": "Next",
-      "endpoint": "",
-      "body": {}
-    },
+    "screenTitle": "Basic profile",
 		"sections": [
       {
         "id": "__#1__",
@@ -62,7 +58,7 @@ final basicProfileStep1Response = {
         "id": "__#5__",
 				"type": "grid_selection", //list_selection, grid_selection
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -119,7 +115,7 @@ final basicProfileStep1Response = {
         "id": "__#7__",
         "type": "inbuild_sheet_selection",
         "style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
         "content": [
           {
@@ -132,7 +128,7 @@ final basicProfileStep1Response = {
         "id": "__#8__",
         "type": "inbuild_sheet_selection",
         "style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
         "content": [
           {
@@ -145,7 +141,7 @@ final basicProfileStep1Response = {
         "id": "__#9__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -161,7 +157,7 @@ final basicProfileStep1Response = {
         "id": "__#10__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": false,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -178,7 +174,7 @@ final basicProfileStep1Response = {
         "id": "__#11__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -193,7 +189,7 @@ final basicProfileStep1Response = {
         "id": "__#12__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -208,7 +204,7 @@ final basicProfileStep1Response = {
         "id": "__#13__",
         "type": "inbuild_sheet_selection",
         "style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
         "content": [
           {
@@ -247,7 +243,7 @@ final basicProfileStep1Response = {
         "id": "__#16__",
         "type": "dynamic_select_screen",
         "style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
         "content": [
           {
@@ -262,7 +258,7 @@ final basicProfileStep1Response = {
         "id": "__#17__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -277,7 +273,7 @@ final basicProfileStep1Response = {
         "id": "__#18__",
 				"type": "app_text_field",
 				"style": "basic",
-        "required": true,
+        "required": req,
         "is_input": true,
 				"content": [
 					{
@@ -307,7 +303,7 @@ final basicProfileStep1Response = {
         "id": "__#20__",
         "type": "inbuild_sheet_selection",
         "style": "basic",
-        "required": false,
+        "required": req,
         "is_input": true,
         "content": [
           {
@@ -320,7 +316,7 @@ final basicProfileStep1Response = {
         "id": "__#20.1__",
 				"type": "app_checkbox",
 				"style": "basic",
-        "required": false,
+        "required": true,
         "is_input": true,
 				"content": [
 					{
@@ -329,7 +325,17 @@ final basicProfileStep1Response = {
 						"value": false,
 						"enable": true,
 					}
-				]
+				],
+        // "visibilityConditions": {
+        //   "operator": "AND",
+        //   "rules": [
+        //     {
+        //       "field": "country_sheet_selection",
+        //       "operator": "equals",
+        //       "value": "USA"
+        //     }
+        //   ]
+        // },
 			},
       {
         "id": "__#21__",

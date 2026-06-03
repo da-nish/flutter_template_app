@@ -54,7 +54,6 @@ class _AppChecboxWidgetState extends State<AppChecboxWidget> {
               enabled: enable,
               value: value, 
               onChanged: (v){
-                print("state: $v");
                 setState(() {
                   value = v ?? false;
                   widget.formController.updateValue(widget.section.id, value);

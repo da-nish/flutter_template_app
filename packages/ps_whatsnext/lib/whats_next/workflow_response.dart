@@ -1,14 +1,17 @@
 class WorkflowResponse {
+  final double? progress;
   final DynamicTable? table;
   final List<WorkflowStep> steps;
 
   WorkflowResponse({
+    this.progress,
     this.table,
     required this.steps,
   });
 
   factory WorkflowResponse.fromJson(Map<String, dynamic> json) {
     return WorkflowResponse(
+      progress: json['progress'],
       table: json["table"] != null
           ? DynamicTable.fromJson(json["table"])
           : null,

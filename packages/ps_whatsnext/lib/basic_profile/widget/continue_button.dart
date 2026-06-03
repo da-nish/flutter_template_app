@@ -34,7 +34,7 @@ class ContinueButtonWidget extends StatelessWidget {
 
       final screenModel = DynamicScreenModel.fromJson(basicProfileStep2Response);
 
-      if(section.content.first['route'] == "main_screen-1"){
+      if(section.content.first['route'] == "main_screen"){
         // Navigator.popUntil(context, ModalRoute.withName('/whatnext_screen'));
         Navigator.popUntilWithResult(context, ModalRoute.withName('/whatnext_screen'), "refresh now");
       }

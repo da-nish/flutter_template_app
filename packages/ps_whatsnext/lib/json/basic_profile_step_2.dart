@@ -1,6 +1,6 @@
 
   final basicProfileStep2Response = {
-		"screenTitle": "Basic profile",
+		"screenTitle": "Suitability Check",
     "continue_button": {
       "buttonText": "Next",
       "endpoint": "",
@@ -18,7 +18,6 @@
 					}
 				]
 			},
-			
 			{
         "id": "__#2__",
 				"type": "info_text",

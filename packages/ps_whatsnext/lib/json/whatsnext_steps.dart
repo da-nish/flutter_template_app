@@ -1,4 +1,5 @@
 final whatsNextSteps = {
+  "progress": 20.0,
   "table": {
     "title": "What’s Next?",
     "subtitle": "Step 1/9",
@@ -53,7 +54,7 @@ final whatsNextSteps = {
           "enabled": true,
           "action": {
             "type": "navigate",
-            "route": "/next"
+            "route": "/schedule-call"
           }
         }
       ],
@@ -88,7 +89,7 @@ final whatsNextSteps = {
           "enabled": true,
           "action": {
             "type": "navigate",
-            "route": "/next"
+            "route": "/basic-profile"
           }
         }
       ],
@@ -119,11 +120,11 @@ final whatsNextSteps = {
       "buttons": [
         {
           "text": "continue",
-          "style": "hyperlink",
+          "style": "primary",//primary, hyperlink
           "enabled": true,
           "action": {
             "type": "navigate",
-            "route": "/next"
+            "route": "/aml-check"
           }
         }
       ],

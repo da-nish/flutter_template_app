@@ -7,30 +7,58 @@ import 'package:ps_whatsnext/basic_profile/widget/local_sheet.dart';
 import 'package:ps_whatsnext/basic_profile/widget/search_view.dart';
 import 'package:ps_whatsnext/basic_profile/widget/step_widget.dart';
 import 'package:ps_whatsnext/basic_profile/widget/textfield.dart';
+import 'package:ps_whatsnext/basic_profile/widget/vertical_stepper_widget.dart';
 
 
-class FormController{
+class FormController extends ChangeNotifier {
   final Map<String, dynamic> formData = {};
-  void addField(SectionModel item){
+  final List<SectionModel> sections;
+
+  FormController({required this.sections});
+
+  void addField(SectionModel item) {
     formData[item.id] = "";
+    // If the section content has items with their own IDs, initialize them too.
+    for (var contentItem in item.content) {
+      if (contentItem is Map && contentItem.containsKey('id')) {
+        formData[contentItem['id'].toString()] = "";
+      }
+    }
   }
 
-  void updateValue(String id, dynamic value){
+  void updateValue(String id, dynamic value) {
     formData[id] = value;
+    
+    // Also update matching IDs
+    for (var section in sections) {
+      if (section.id == id) {
+        for (var contentItem in section.content) {
+          if (contentItem is Map && contentItem.containsKey('id')) {
+            formData[contentItem['id'].toString()] = value;
+          }
+        }
+      } else {
+        for (var contentItem in section.content) {
+          if (contentItem is Map && contentItem['id']?.toString() == id) {
+            formData[section.id] = value;
+          }
+        }
+      }
+    }
+    notifyListeners();
   }
 
-  String getValue(String id){
-    return formData[id] ?? '';
+  String getValue(String id) {
+    final value = formData[id];
+    if (value == null) return '';
+    return value.toString();
   }
 
-
-  void validate(){
+  void validate() {
     for (final entry in formData.entries) {
       print('${entry.key}: ${entry.value}');
     }
   }
-
-
 }
 
 class DynamicUIScreen extends StatefulWidget {
@@ -46,20 +74,35 @@ class DynamicUIScreen extends StatefulWidget {
 }
 
 class _DynamicUIScreenState extends State<DynamicUIScreen> {
-  final formController = FormController();
+  late final FormController formController;
   final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
+    formController = FormController(sections: widget.screen.sections);
     
     for(SectionModel item in widget.screen.sections){
       if(item.isInputType){
         formController.addField(item);
       }
     }
+    formController.addListener(_onFormChanged);
     
     super.initState();
   }
+
+  @override
+  void dispose() {
+    formController.removeListener(_onFormChanged);
+    super.dispose();
+  }
+
+  void _onFormChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,32 +111,24 @@ class _DynamicUIScreenState extends State<DynamicUIScreen> {
       ),
       body: Form(
         key: formKey,
-        // autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: 
-        SingleChildScrollView(
-           padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
           child: Column(
-            children: widget.screen.sections.map((item){
-            return SectionRenderer(
-              section: item,
-              formController: formController,
-              formKey: formKey,
-            );
-          }).toList()
+            children: widget.screen.sections.map((item) {
+              if (item.visibilityConditions != null) {
+                final isVisible = item.visibilityConditions!.evaluate(formController.formData);
+                if (!isVisible) {
+                  return const SizedBox.shrink();
+                }
+              }
+              return SectionRenderer(
+                section: item,
+                formController: formController,
+                formKey: formKey,
+              );
+            }).toList(),
           ),
-        )
-        // ListView.builder(
-        //   padding: const EdgeInsets.all(16),
-        //   itemCount: widget.screen.sections.length,
-          
-        //   itemBuilder: (context, index) {
-        //     return SectionRenderer(
-        //       section: widget.screen.sections[index],
-        //       formController: formController,
-        //       formKey: formKey,
-        //     );
-        //   },
-        // ),
+        ),
       ),
     );
   }
@@ -122,7 +157,7 @@ class SectionRenderer extends StatelessWidget {
         return InfoTextWidget(section);
 
       case 'section_title':
-        return SectionTitleWidget(section);
+        return SectionTitleWidget(section: section);
 
       case 'grid_selection':
         return GridSelectionWidget(section: section, formController: formController);
@@ -147,6 +182,9 @@ class SectionRenderer extends StatelessWidget {
 
       case 'app_checkbox':
         return AppChecboxWidget(section: section, formController: formController);
+
+      case 'vertical_stepper':
+        return VerticalStepperWidget(section: section);
 
       default:
         return const SizedBox.shrink();

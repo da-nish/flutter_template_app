@@ -24,8 +24,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   @override
   void initState() {
-    
-    print("app text field building ========");
     emailController.text = widget.formController.getValue(widget.section.id);
     super.initState();
   }

@@ -20,12 +20,26 @@ class HomeScreen extends StatelessWidget {
     debugPrint("=====> $env");
     
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Hub')),
+      appBar: AppBar(title: const Text('Home')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Consumer(
+            ElevatedButton(
+              onPressed: () => appRouter.push(AppRoutes.whatnextScreen),
+              // goRouter.push(AppRoutes.login),
+              child: const Text('Whatsnext Screen'),
+            ),
+            // ..._buttons(context)
+          ],
+        ),
+      ),
+    );
+  }
+
+
+  List<Widget> _buttons(BuildContext context) => [
+    Consumer(
               builder: (context, ref, child) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(AppLocalizations.of(context)!.helloUser("Danish"), style: TextStyle(fontSize: 20),),
+                        Text(AppLocalizations.of(context)!.helloUser("Name"), style: TextStyle(fontSize: 20),),
                       ],
                     ),
                     SizedBox(height: 20,)
@@ -71,7 +85,8 @@ class HomeScreen extends StatelessWidget {
               onPressed: () => appRouter.push(AppRoutes.login),
               // goRouter.push(AppRoutes.login),
               child: const Text('Login Screen'),
-            ),ElevatedButton(
+            ),
+            ElevatedButton(
               onPressed: () => appRouter.push(AppRoutes.whatnextScreen),
               // goRouter.push(AppRoutes.login),
               child: const Text('Whatsnext Screen'),
@@ -113,9 +128,5 @@ class HomeScreen extends StatelessWidget {
               onPressed: () => context.push(AppRoutes.dataViewScreen),
               child: const Text('Data view Screen'),
             ),
-          ],
-        ),
-      ),
-    );
-  }
+            ];
 }

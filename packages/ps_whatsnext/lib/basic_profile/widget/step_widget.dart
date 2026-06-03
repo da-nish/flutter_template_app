@@ -156,7 +156,7 @@ class StepCounterWidget extends StatelessWidget {
 class SectionTitleWidget extends StatelessWidget {
   final SectionModel section;
 
-  const SectionTitleWidget(this.section, {super.key});
+  const SectionTitleWidget({super.key, required this.section});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ps_whatsnext/basic_profile/basic_profile_screen.dart';
 import 'package:ps_whatsnext/basic_profile/response_model.dart';
+import 'package:ps_whatsnext/components/progress_bar/progress_bar.dart';
+import 'package:ps_whatsnext/json/aml_check.dart';
 import 'package:ps_whatsnext/json/basic_profile_step_1.dart';
 import 'package:ps_whatsnext/whats_next/workflow_response.dart';
+
 
 class WorkflowScreen extends StatelessWidget {
   final WorkflowResponse response;
@@ -14,20 +17,32 @@ class WorkflowScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ListView(
-      padding: const EdgeInsets.all(16),
+      // padding: const EdgeInsets.all(16),
       children: [
-
-        if (response.table != null)
-          DynamicTableWidget(
-            table: response.table!,
-          ),
-
-        const SizedBox(height: 20),
-
-        ...response.steps.map(
-          (e) => WorkflowStepWidget(step: e),
+        if(response.progress != null)
+        HorizontalProgressBar(
+          percentage: response.progress ?? 0.0,
         ),
+
+       Padding(
+         padding: const EdgeInsets.all(16),
+         child: Column( 
+          children: [
+
+          if (response.table != null)
+            DynamicTableWidget(
+              table: response.table!,
+            ),
+            const SizedBox(height: 10),
+            ...response.steps.map(
+            (e) => WorkflowStepWidget(step: e),
+          )
+          
+          ]
+          ),
+       )
       ],
     );
   }
@@ -52,6 +67,7 @@ class DynamicTableWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
 
             Text(
               table.title,
@@ -280,7 +296,9 @@ Future<void> handleAction(
       //   action.route ?? "",
       // );
 
-      final screenModel = DynamicScreenModel.fromJson(basicProfileStep1Response);
+      // final screenModel = DynamicScreenModel.fromJson(basicProfileStep1Response);
+      final screenData = getScreenData(action.route);
+      final screenModel =  DynamicScreenModel.fromJson(screenData);
 
       final result = await Navigator.push(
         context,
@@ -297,8 +315,17 @@ Future<void> handleAction(
     case "modal":
       showModalBottomSheet(
         context: context,
-        builder: (_) => Text(
-          action.id ?? "",
+    
+        builder: (_) => SafeArea(
+          child: SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: Center(
+              child: Text(
+                action.id ?? "",
+              ),
+            ),
+          ),
         ),
       );
       break;
@@ -309,4 +336,18 @@ Future<void> handleAction(
     case "deeplink":
       break;
   }
+
 }
+
+
+ Map<String, dynamic> getScreenData(String? route){
+
+    if(route=="/basic-profile"){
+      return basicProfileStep1Response;
+    }
+    else if(route=="/aml-check"){
+      return amlCheckResponse;
+    }
+    return {};
+
+  }
