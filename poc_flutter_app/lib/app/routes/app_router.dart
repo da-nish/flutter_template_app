@@ -6,6 +6,7 @@ import 'package:poc_flutter_app/app/screens/login_screen/login_screen.dart';
 import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_admin_screen.dart';
 import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_company_screen.dart';
 import 'package:poc_flutter_app/app/screens/profile_sub_route/profile_user_screen.dart';
+import 'package:poc_flutter_app/app/screens/whatnext/view/whatnext_screen.dart';
 
 import '../screens/dashboard_screen.dart';
 import '../screens/home_screen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String settings = '/settings';
   static const String dashboard = '/dashboard';
   static const String dataViewScreen='/DataViewScreen';
+  static const String whatnextScreen='/whatnext_screen';
 
 }
 
@@ -90,6 +92,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.dataViewScreen,
       builder: (context, state) => const DataViewScreen(),
+    ),
+    GoRoute(
+        path: AppRoutes.whatnextScreen,
+        builder: (context, state) => const WhatnextScreen(),
     ),
   ],
 );

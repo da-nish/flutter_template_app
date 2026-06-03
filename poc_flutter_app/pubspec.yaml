@@ -28,6 +28,8 @@ dependencies:
     path: ../packages/ps_api
   ps_db:
     path: ../packages/ps_db
+  ps_whatsnext:
+    path: ../packages/ps_whatsnext
   internet_connection_checker_plus: ^3.0.0
   flutter_dotenv: ^6.0.1
   
